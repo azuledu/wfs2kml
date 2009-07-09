@@ -2,6 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>es.uva.idelab</groupId>
   <artifactId>wfs2kml</artifactId>
+  <name>WFS to KML Gateway</name>
   <version>0.0.1-SNAPSHOT</version>
   <url>www.idelab.uva.es</url>
 </project>
