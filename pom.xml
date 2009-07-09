@@ -6,4 +6,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <url>http://www.idelab.uva.es</url>
   <inceptionYear>2009</inceptionYear>
+  <organization>
+  	<name>ITNT-ITAST</name>
+  </organization>
 </project>
