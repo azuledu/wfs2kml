@@ -1,0 +1,16 @@
+  ---
+Requirements
+  ---
+Eduardo Riesco
+  ---
+24-Dec-2007
+  ---
+ 
+Requirements
+
+
+  * Java Runtime Enviroment (JRE) 1.4 or higher.
+  
+  * 3er party <.jar> bundle (ex. Geotools). Can be downloaded {{{http://eduardoriesco.com/wfs_kml_gw/WFS_KML_gw_CLA/download.html}here}}
+ 
+  

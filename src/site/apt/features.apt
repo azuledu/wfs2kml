@@ -1,0 +1,26 @@
+  ---
+Features
+  ---
+Eduardo Riesco
+  ---
+24-Dec-2007
+  ---
+  
+Features
+
+  
+  * Transform WFS requests in KML responses.
+  
+  * Allow to select the Bounding Box.
+  
+  * Automatic conversion between diferent Coordinate Reference Systems (CRS). KML format use the WSG84 CRS, the standart longitude-latitude system. The bounding box must be given in this format. But if data are stored in a diferent format, automatic conversion will be performed. 
+  
+  * 3D representation of geographic features.
+  
+  * Allow to configurate how geographic features are visualized:
+  
+    * Any feature parameter can be used as a height parameter.
+    
+    * Height parameter can be scaled.
+  
+  []

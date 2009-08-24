@@ -1,0 +1,107 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>  
+    <groupId>es.uva.pfc.eduardoRiesco</groupId>
+    <artifactId>WFS_KML_gw</artifactId>
+    <version>1.0.1</version>
+  </parent>
+
+  <artifactId>WFS_KML_gw_Servlet</artifactId>
+  <packaging>war</packaging>
+  <name>Servlet</name>
+  <description>Gateway to transform WFS requests in KML responses with special emphasis in 3D representation of features</description>
+
+  <reporting>
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <links>
+            <link>http://java.sun.com/j2se/1.5.0/docs/api</link>
+            <link>http://www.vividsolutions.com/jts/javadoc/</link>
+            <link>http://geoapi.sourceforge.net/2.0/javadoc/</link>
+            <link>http://javadoc.geotools.fr/2.4/</link>
+            <link>http://java.sun.com/j2ee/1.4/docs/api/</link>
+          </links>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>taglist-maven-plugin</artifactId>
+        <configuration>
+          <tags>
+            <tag>FIXME</tag>
+            <tag>@fixme</tag>
+            <tag>TODO</tag>
+            <tag>@todo</tag>
+          </tags>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <configuration>
+          <effort>Max</effort>
+          <threshold>Exp</threshold>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>javancss-maven-plugin</artifactId>
+      </plugin>
+  
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <configuration>
+          <rulesets>
+            <ruleset>/rulesets/basic.xml</ruleset>
+            <ruleset>/rulesets/imports.xml</ruleset>
+            <ruleset>/rulesets/unusedcode.xml</ruleset>
+            <ruleset>/rulesets/strictexception.xml</ruleset>
+          </rulesets>
+          <!-- CPD configuration, for small examples. -->
+          <minimumTokens>10</minimumTokens>
+        </configuration>
+      </plugin>
+      
+    </plugins>
+  </reporting>
+
+
+  <dependencies>
+    
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.5</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>es.uva.pfc.eduardoRiesco</groupId>
+      <artifactId>WFS_KML_gw_CLA</artifactId>
+      <version>1.0.1</version>
+    </dependency>
+<!--
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>6.0.14</version>
+    </dependency>-->
+  </dependencies>
+
+</project>

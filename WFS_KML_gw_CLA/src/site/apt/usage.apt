@@ -1,0 +1,36 @@
+  ---
+Usage
+  ---
+Eduardo Riesco
+  ---
+24-Dec-2007
+  ---
+ 
+Usage:
+
+  Download the WFS-KML Gateway Command Line Application with 3er party dependencies. 
+  It can be downloaded {{{http://eduardoriesco.com/wfs_kml_gw/WFS_KML_gw_CLA/download.html}here}}
+  
+  Unzip the downloaded file.
+
+  From the command line:
+
++----------------------------------------------------------------------------------+
+  java -cp path/to/WFS_KML_gw_CLA-1.0.0.jar
+  es.uva.pfc.eduardoRiesco.WFS_KML_gw_CLA
+  server namespace:layer xMin xMax yMin yMax [attribute] [scale] [KML_File_Name]
++----------------------------------------------------------------------------------+
+  
+  
+  
+  <server> - Public WFS Geographic server.
+  
+  <namespace:layer> - Namespace and name of one of the layers offered by the WFS server.
+  
+  <xMin xMax yMin yMax> - Bounding Box. 2D rectangle which defines the visible area. Expresed in standar latitude-longitude system.
+  
+  <attribute> - (Optional) - Layer's attribute used as height attribute. If it is not set, 3D feature's height attribute is used or, in 2D features, it will be shown as 2D picture.
+  
+  <scale> - (Optional) - The height will be divided by this number. Default scale is 1.
+  
+  <KML_File_Name> - (Optional) - Output file name. Default name is <test.kml>.

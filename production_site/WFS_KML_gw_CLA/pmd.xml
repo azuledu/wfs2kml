@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="3.9" timestamp="2007-12-28T13:34:27.312" elapsedTime="0s">
+<file name="C:\Documents and Settings\Ed\workspace java\WFS_KML_gw\WFS_KML_gw_CLA\src\main\java\es\uva\pfc\eduardoRiesco\KMLFileWriter.java">
+<violation line="137" rule="UnusedLocalVariable" ruleset="Unused Code Rules" package="es.uva.pfc.eduardoRiesco" class="KMLFileWriter" method="kmlPlacemarks" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedLocalVariable" priority="3">
+Avoid unused local variables such as 'f'.
+</violation>
+</file>
+<file name="C:\Documents and Settings\Ed\workspace java\WFS_KML_gw\WFS_KML_gw_CLA\src\main\java\es\uva\pfc\eduardoRiesco\WFSClient.java">
+<violation line="31" rule="SignatureDeclareThrowsException" ruleset="Strict Exception Rules" package="es.uva.pfc.eduardoRiesco" class="WFSClient" method="getCapabilities" externalInfoUrl="http://pmd.sourceforge.net/rules/strictexception.html#SignatureDeclareThrowsException" priority="3">
+A method/constructor shouldn't explicitly throw java.lang.Exception
+</violation>
+<violation line="50" rule="SignatureDeclareThrowsException" ruleset="Strict Exception Rules" package="es.uva.pfc.eduardoRiesco" class="WFSClient" method="describeFeatureType" externalInfoUrl="http://pmd.sourceforge.net/rules/strictexception.html#SignatureDeclareThrowsException" priority="3">
+A method/constructor shouldn't explicitly throw java.lang.Exception
+</violation>
+<violation line="64" rule="SignatureDeclareThrowsException" ruleset="Strict Exception Rules" package="es.uva.pfc.eduardoRiesco" class="WFSClient" method="getFeature" externalInfoUrl="http://pmd.sourceforge.net/rules/strictexception.html#SignatureDeclareThrowsException" priority="3">
+A method/constructor shouldn't explicitly throw java.lang.Exception
+</violation>
+</file>
+</pmd>

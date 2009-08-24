@@ -1,12 +1,212 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project 	xmlns="http://maven.apache.org/POM/4.0.0" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  			xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>es.uva.idelab</groupId>
-  <artifactId>wfs2kml</artifactId>
-  <name>WFS to KML Gateway</name>
-  <version>0.0.1-SNAPSHOT</version>
-  <url>http://www.idelab.uva.es</url>
-  <inceptionYear>2009</inceptionYear>
+  
+  <groupId>es.uva.pfc.eduardoRiesco</groupId>
+  <artifactId>WFS_KML_gw</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0.1</version>
+  
+  <name>WFS-KML Gateway</name>
+  <description>Gateway to transform WFS requests in KML responses with special emphasis in 3D representation of features</description>
+  <url>http://eduardoriesco/wfs_kml_gw</url>
+  <inceptionYear>2008</inceptionYear>
+  
+  <modules>
+    <module>WFS_KML_gw_CLA</module>
+    <module>WFS_KML_gw_Servlet</module>
+  </modules>
+  
+  <build>
+    <pluginManagement>
+      <plugins>
+      
+        <finalName>WFS_KML_gw_Servlet</finalName>
+        
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <source>1.4</source>
+            <target>1.4</target>
+          </configuration>
+        </plugin>		
+
+        <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-eclipse-plugin</artifactId>
+         <configuration>
+           <projectNameTemplate>[artifactId]</projectNameTemplate>
+           <wtpmanifest>true</wtpmanifest>
+           <wtpapplicationxml>true</wtpapplicationxml>
+           <wtpversion>1.5</wtpversion>
+           <manifest>${basedir}/src/main/resources/META-INF/MANIFEST.MF</manifest>
+           <classpathContainers>
+              <classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
+              <classpathContainer>org.eclipse.jst.j2ee.internal.web.container</classpathContainer>
+              <classpathContainer>org.eclipse.jst.j2ee.internal.module.container</classpathContainer>
+              <classpathContainer>org.eclipse.jst.server.core.container/org.eclipse.jst.server.core.runtimeTarget/J2EE Runtime Library"</classpathContainer>
+           </classpathContainers>
+         </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-site-plugin</artifactId>
+          <!--<configuration>
+            <locales>en,es</locales>
+          </configuration>-->
+        </plugin> 
+        
+      </plugins>
+    </pluginManagement>
+
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-ftp</artifactId>
+        <version>1.0-beta-2</version>
+      </extension>
+    </extensions>
+    
+  </build>
+
   <organization>
-  	<name>ITNT-ITAST</name>
+    <name>Universidad de Valladolid</name>
+    <url>http://www.uva.es</url>
   </organization>
+  
+  <developers>
+    <developer>
+      <id>azuledu</id>
+      <name>Eduardo Riesco</name>
+      <url>http://eduardoriesco.com</url>
+      <email>eduardo.riesco@gmail.com</email>
+      <roles>
+        <role>Developer</role>
+      </roles>
+      <timezone>+1</timezone>
+    </developer>
+  </developers>
+  
+  <contributors>
+    <contributor>
+      <name>Juan pablo de Castro</name>
+      <url>http://www.itnt.uva.es</url>
+      <email>juacas@tel.uva.es</email>
+      <organization>Universidad de Valladolid</organization>
+      <organizationUrl>http://www.uva.es</organizationUrl>
+      <roles>
+        <role>Coordinator</role>
+      </roles>
+      <timezone>+1</timezone>
+    </contributor>
+  </contributors>
+  
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </reporting>
+    
+  <distributionManagement>
+    <!--<downloadUrl>http://mojo.codehaus.org/my-project</downloadUrl>
+    <status>deployed</status>
+    <repository>
+      <uniqueVersion>false</uniqueVersion>
+      <id>tomcat</id>
+      <name>Tomcat</name>
+      <url>file://C:\Archivos de programa\apache-tomcat-6.0.14\webapps</url>
+      <layout>default</layout>
+    </repository>
+    <snapshotRepository>
+      <uniqueVersion>true</uniqueVersion>
+      <id>propSnap</id>
+      <name>Propellors Snapshots</name>
+      <url>sftp://propellers.net/maven</url>
+      <layout>legacy</layout>
+    </snapshotRepository> -->
+    <site>
+      <id>EduardoRiesco</id>
+      <name>Eduardo Riesco site</name>
+      <url>file://C:\Documents and Settings\Ed\workspace java\WFS_KML_gw\production_site</url>
+    </site>
+    <!--<relocation>
+      <groupId>org.apache</groupId>
+      <artifactId>my-project</artifactId>
+      <version>1.0</version>
+      <message>We have moved the Project under Apache</message>
+    </relocation> -->
+  </distributionManagement>
+  
+  <repositories>
+    <repository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>ibiblio</id>
+      <name>Ibiblio - the public's library and digital archive</name>
+      <url>http://www.ibiblio.org/maven2</url>
+    </repository>
+    <repository>
+      <id>refractions</id>
+      <name>Refractions Research Maven 2 Repository</name>
+      <url>http://lists.refractions.net/m2</url>
+    </repository>
+    <repository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>geotools</id>
+      <name>Geotools repository</name>
+      <url>http://maven.geotools.fr/repository</url>
+    </repository>
+    <repository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>Maven Repository Switchboard</name>
+      <url>http://repo1.maven.org/maven2</url>
+    </repository>
+  </repositories>
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.geotools</groupId>
+      <artifactId>gt2-main</artifactId>
+      <version>2.4.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.geotools</groupId>
+      <artifactId>gt2-wfs</artifactId>
+      <version>2.4.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.geotools</groupId>
+      <artifactId>gt2-epsg-wkt</artifactId>
+      <version>2.4.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.geotools</groupId>
+      <artifactId>gt2-epsg-hsql</artifactId>
+      <version>2.4.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.geotools</groupId>
+      <artifactId>gt2-epsg-extension</artifactId>
+      <version>2.4.4</version>
+    </dependency>
+
+  </dependencies>
 </project>

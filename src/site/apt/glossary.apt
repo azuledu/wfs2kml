@@ -1,0 +1,23 @@
+  ---
+Glossary
+  ---
+Eduardo Riesco
+  ---
+6-Dec-2007
+  ---
+
+Glossary
+
+
+  <<OWS>> - <OGC Web Service>.
+  
+  <<OGC>> - <Open Geospatial Consortium>. International voluntary consensus standards organization. Develop and implements standards for geospatial content and services, GIS data processing and exchange.
+  
+  <<WFS>> - <Web Feature Service>. Allow requests for geographical features across the web. It is a OGC specification.
+  
+  <<KML>> - <Keyhole Markup Language>. XML format used by Google to represent 3D geographic information.
+  
+  <<Feature>> - Entity with a geographic location, typically describable by (for example) points, arcs, or polygons.
+  
+  <<CRS>> - <Coordinate Reference System>
+  

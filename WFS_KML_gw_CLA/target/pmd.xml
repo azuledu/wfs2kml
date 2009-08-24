@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.2.2" timestamp="2008-07-11T01:03:28.171">
+<file name="C:\Documents and Settings\Ed\workspace java\WFS_KML_gw\WFS_KML_gw_CLA\src\main\java\es\uva\pfc\eduardoRiesco\KMLFileWriter.java">
+<violation beginline="139" endline="139" begincolumn="22" endcolumn="22" rule="UnusedLocalVariable" ruleset="Unused Code Rules" package="es.uva.pfc.eduardoRiesco" class="KMLFileWriter" method="kmlPlacemarks" variable="f" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedLocalVariable" priority="3">
+Avoid unused local variables such as 'f'.
+</violation>
+</file>
+<file name="C:\Documents and Settings\Ed\workspace java\WFS_KML_gw\WFS_KML_gw_CLA\src\main\java\es\uva\pfc\eduardoRiesco\WFSClient.java">
+<violation beginline="31" endline="31" begincolumn="64" endcolumn="72" rule="SignatureDeclareThrowsException" ruleset="Strict Exception Rules" package="es.uva.pfc.eduardoRiesco" class="WFSClient" method="getCapabilities" externalInfoUrl="http://pmd.sourceforge.net/rules/strictexception.html#SignatureDeclareThrowsException" priority="3">
+A method/constructor shouldn't explicitly throw java.lang.Exception
+</violation>
+<violation beginline="50" endline="50" begincolumn="74" endcolumn="82" rule="SignatureDeclareThrowsException" ruleset="Strict Exception Rules" package="es.uva.pfc.eduardoRiesco" class="WFSClient" method="describeFeatureType" externalInfoUrl="http://pmd.sourceforge.net/rules/strictexception.html#SignatureDeclareThrowsException" priority="3">
+A method/constructor shouldn't explicitly throw java.lang.Exception
+</violation>
+<violation beginline="64" endline="64" begincolumn="83" endcolumn="91" rule="SignatureDeclareThrowsException" ruleset="Strict Exception Rules" package="es.uva.pfc.eduardoRiesco" class="WFSClient" method="getFeature" externalInfoUrl="http://pmd.sourceforge.net/rules/strictexception.html#SignatureDeclareThrowsException" priority="3">
+A method/constructor shouldn't explicitly throw java.lang.Exception
+</violation>
+</file>
+</pmd>

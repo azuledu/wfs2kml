@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="WFS-KML Gateway Command Line Application">
+<!--
+  <skin>
+    <groupId>es.uva.pfc.eduardoRiesco</groupId>
+    <artifactId>WFS_KML_gw_skin</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </skin>
+-->  
+  <publishDate position="left" format="dd MMM yyyy"/>
+<!--
+  <bannerLeft>
+    <name>Maven</name>
+    <src>http://maven.apache.org/images/apache-maven-project.png</src>
+    <href>http://maven.apache.org/</href>
+  </bannerLeft>
+   -->
+  <bannerLeft>
+    <name>Mapa</name>
+    <src>images/header_5.JPG</src>
+    <href>http://eduardoriesco/wfs_kml_gw/</href>
+  </bannerLeft>
+
+  
+  <body class="composite">
+  
+  <breadcrumbs>
+      <item name="WFS-KML Gateway" href="http://www.eduardoriesco.com/wfs_kml_gw"/>
+      <item name="Command Line Application" href="http://www.eduardoriesco.com/wfs_kml_gw/WFS_KML_gw_CLA"/>
+  </breadcrumbs>
+
+  
+    <links>
+      <item name="UVA" href="http://www.uva.es/" />
+      <item name="WMS Cache Wrapper" href="http://itastserver.tel.uva.es/WMS_C_wrapper/"/>
+    </links>
+
+    <menu ref="parent"/>
+
+    <menu name="Users Guide">
+      <item name="Introduction" href="index.html"/>
+      <item name="Requirements" href="requirements.html"/>
+      <item name="Usage" href="usage.html"/>
+      <item name="Download" href="download.html"/>
+    </menu>
+
+    <menu ref="reports" collapse="true" />
+    
+    <menu ref="modules"/>
+    
+  </body>  
+</project>

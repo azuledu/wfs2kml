@@ -1,0 +1,14 @@
+  ---
+Introduction
+  ---
+Eduardo Riesco
+  ---
+24-Dec-2007
+  ---
+  
+Introduction
+
+
+  <WFS-KML Gateway Command Line Application> is a Java application in a <.jar> form.
+  
+  It generates a <.kml> file into the working directory that can be opened with Google Earth.

@@ -1,0 +1,984 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>WFS-KML Gateway - CPD Results</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                  <a href="../" id="bannerLeft">
+    
+                                            <img src="images/header_5.JPG" alt="" />
+    
+            </a>
+                    <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+        Last Published: 11 Jul 2008
+                          |   
+                <a href="http://www.eduardoriesco.com/wfs_kml_gw" class="externalLink">WFS-KML Gateway</a>
+                &gt;
+      
+                <a href="http://www.eduardoriesco.com/wfs_kml_gw/WFS_KML_gw_Servlet" class="externalLink">Servlet</a>
+                &gt;
+      
+          Servlet
+                        </div>
+            <div class="xright">            <a href="http://www.uva.es/" class="externalLink">UVA</a>
+            |
+                <a href="http://itastserver.tel.uva.es/WMS_C_wrapper/" class="externalLink">WMS Cache Wrapper</a>
+            
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <h5>WFS-KML Gateway</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="index.html">Introduction</a>
+          </li>
+              
+    <li class="none">
+                    <a href="features.html">Features</a>
+          </li>
+              
+    <li class="none">
+                    <a href="glossary.html">Glossary</a>
+          </li>
+              
+    <li class="none">
+                    <a href="examples.html">Examples</a>
+          </li>
+              
+    <li class="none">
+                    <a href="screenshots.html">Screenshots</a>
+          </li>
+          </ul>
+              <h5>Project Documentation</h5>
+            <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-info.html">Project Information</a>
+                </li>
+              
+                
+              
+            
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+            <li class="expanded">
+                    <a href="project-reports.html">Project Reports</a>
+                  <ul>
+                  
+    <li class="none">
+              <strong>CPD Report</strong>
+        </li>
+                  
+    <li class="none">
+                    <a href="findbugs.html">FindBugs Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="apidocs/index.html">JavaDocs</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="javancss.html">JavaNCSS Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="pmd.html">PMD Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="xref/index.html">Source Xref</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="taglist.html">Tag List</a>
+          </li>
+              </ul>
+        </li>
+          </ul>
+                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2>CPD Results</h2>
+<p>The following document contains the results of PMD's  <a href="http://pmd.sourceforge.net/cpd.html" class="externalLink">CPD</a>
+ 4.2.2.</p>
+</div>
+<div class="section"><h2>Duplications</h2>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\KMLFileWriter.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/KMLFileWriter.html#76">76</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#157">157</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>				kmlout.write(&quot;&lt;description&gt;test file&lt;/description&gt;\n&quot;);
+			
+				kmlStyle( );
+				kmlRegion( bbox );
+				kmlPlacemarks( featureCollection, geomCRS );
+				
+				kmlout.write(&quot;&lt;/Folder&gt;\n&quot;);
+				kmlout.write(&quot;&lt;/Document&gt;\n&quot;);
+				kmlout.write(&quot;&lt;/kml&gt;\n&quot;);
+				
+				kmlout.close();
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+		/**
+		 * Define the style asociated to the features
+		 */
+		private void kmlStyle() {
+			kmlout.write(&quot;\n&lt;Style id=\&quot;default\&quot;&gt;\n&quot;);
+			kmlout.write(&quot;	&lt;LineStyle&gt;\n&quot;);
+			kmlout.write(&quot;		&lt;width&gt;1.5&lt;/width&gt;\n&quot;);
+			kmlout.write(&quot;	&lt;/LineStyle&gt;\n&quot;);
+			kmlout.write(&quot;	&lt;PolyStyle&gt;\n&quot;);
+			kmlout.write(&quot;		&lt;color&gt;7d00ffff&lt;/color&gt;\n&quot;);
+			kmlout.write(&quot;	&lt;/PolyStyle&gt;\n&quot;);
+			kmlout.write(&quot;&lt;/Style&gt;\n&quot;);
+		}
+				
+		/**
+		 * @param bbox 	Space region that defines the KML viewer focus. 
+		 * 				All the features are inside of this Bounding Box
+		 */
+		private void kmlRegion(Envelope bbox) {
+
+			kmlout.write(&quot;\n&lt;Region&gt;\n&quot;);
+			kmlout.write(&quot;	&lt;LatLonAltBox&gt;\n&quot;);
+			kmlout.write(&quot;		&lt;north&gt;&quot;+bbox.getMaxY()+&quot;&lt;/north&gt;\n&quot;);
+			kmlout.write(&quot;		&lt;south&gt;&quot;+bbox.getMinY()+&quot;&lt;/south&gt;\n&quot;);
+			kmlout.write(&quot;		&lt;east&gt;&quot;+bbox.getMaxX()+&quot;&lt;/east&gt;\n&quot;);
+			kmlout.write(&quot;		&lt;west&gt;&quot;+bbox.getMinX()+&quot;&lt;/west&gt;\n&quot;);
+			kmlout.write(&quot;		&lt;altitudeMode&gt;relativeToGround&lt;/altitudeMode&gt;\n&quot;);	
+			kmlout.write(&quot;	&lt;/LatLonAltBox&gt;\n&quot;); 
+			kmlout.write(&quot;	&lt;Lod&gt;\n&quot;);
+			kmlout.write(&quot;		&lt;minLodPixels&gt;0&lt;/minLodPixels&gt;\n&quot;);		//TODO Revisar
+			kmlout.write(&quot;	&lt;/Lod&gt;\n&quot;);
+			kmlout.write(&quot;&lt;/Region&gt;\n&quot;);
+		}
+		
+		/**
+		 * @param featureCollection	All the features to be represented
+		 */
+		private void kmlPlacemarks(FeatureCollection featureCollection, CoordinateReferenceSystem geomCRS) {
+			Iterator iterator = featureCollection.iterator();			// Feature
+	        try {
+	            for( int f=0; iterator.hasNext(); f++) {
+	                Feature feature = (Feature) iterator.next();
+					kmlout.write(&quot;\n&lt;Placemark&gt;\n&quot;);  						
+					kmlout.write(&quot;&lt;name&gt;&quot;+feature.getID() +&quot;&lt;/name&gt;\n&quot;);
+					kmlout.write(&quot;&lt;styleUrl&gt;default&lt;/styleUrl&gt;\n&quot;);
+					
+					kmlGeometries( feature, geomCRS );
+					
+					kmlout.write(&quot;&lt;/Placemark&gt;\n&quot;);
+	            }
+	        }
+	        finally {
+	            	featureCollection.close( iterator );
+	        }
+		}
+		
+		/**
+		 * @param feature	Feature to extract their geometries
+		 */
+		private void kmlGeometries(Feature feature, CoordinateReferenceSystem geomCRS) {
+			
+			boolean multiGeometry = false;
+			double zCoord;
+			CoordinateReferenceSystem kmlCRS;
+			
+			try {
+				
+			kmlCRS = CRS.decode(&quot;EPSG:4326&quot;);
+			
+			if (feature.getPrimaryGeometry().getNumGeometries()&gt;1){	
+				kmlout.write(&quot;&lt;MultiGeometry&gt;\n&quot;);
+				multiGeometry = true;
+			}
+			for(int g=0; g&lt;feature.getPrimaryGeometry().getNumGeometries(); g++){  // Geometry
+				kmlout.write(&quot;&lt;Polygon&gt;\n&quot;);					// 	TODO geometrias diferentes de &quot;poligon&quot; 
+				kmlout.write(&quot;&lt;extrude&gt;1&lt;/extrude&gt;\n&quot;);
+				//kmlout.write(&quot;&lt;tessellate&gt;1&lt;/tessellate&gt;\n&quot;);  	TODO Activar para poligonos grandes.
+				kmlout.write(&quot;&lt;altitudeMode&gt;relativeToGround&lt;/altitudeMode&gt;\n&quot;);	// TODO Otros altitudeMode
+				
+				kmlout.write(&quot;&lt;outerBoundaryIs&gt;\n&quot;);  // TODO prever InnerBoundaryIS
+				
+				kmlout.write(&quot;&lt;LinearRing&gt;\n&quot;);
+				kmlout.write(&quot;&lt;coordinates&gt;\n&quot;);
+				// JTSUtilities
+				
+				// zMinMax(Coordinate[] cs)
+		        //  Determine the min and max &quot;z&quot; values in an array of Coordinates.
+				
+				// guessCoorinateDims(Coordinate[] cs)
+//		          Returns:
+//		        	  2 for 2d (default)
+//		        	  4 for 3d - one of the oordinates has a non-NaN z value
+//		        	  (3 is for x,y,m but thats not supported yet) 
+				
+//				findBestGeometryType(Geometry geom)
+//		          Determine the best ShapeType for a given Geometry.
+				
+				Geometry geomGeometry = feature.getPrimaryGeometry().getGeometryN(g);
+				
+				MathTransform transform = CRS.findMathTransform(geomCRS, kmlCRS);
+				Geometry kmlGeometry = JTS.transform( geomGeometry, transform);
+					
+				Coordinate coord[] = kmlGeometry.getCoordinates();
+				
+				if (zAttribute != null) { //.length() != 0 ) {	// If the user has selected the height attribute</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\KMLFileWriter.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/KMLFileWriter.html#201">201</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#279">279</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>				if (zAttribute != null) { //.length() != 0 ) {	// If the user has selected the height attribute
+					FeatureType featureType = feature.getFeatureType();
+					
+					int attrPos = featureType.find(zAttribute);	
+					if (attrPos == -1) {			// If the attribute doesn't exist
+						zCoord = 0;
+					} else {						// If the attribute exist
+						if (!(feature.getAttribute(attrPos) instanceof Number)) {
+							System.out.print(&quot;Height attribute isn't a number&quot;);
+							zCoord = 0;
+						}					
+						if ((feature.getAttribute(attrPos) instanceof Float) || (feature.getAttribute(attrPos) instanceof Double)) {
+							Double zCoordDouble = (Double)feature.getAttribute(attrPos); 
+							zCoord = zCoordDouble.doubleValue();
+						} else {
+							Long zCoordLong = (Long)feature.getAttribute(attrPos); 
+							zCoord = zCoordLong.longValue();
+						}
+						
+					}		
+		        	for(int j=0;j&lt;coord.length;j++){
+		        		kmlout.write( coord[j].x +&quot;,&quot; + coord[j].y + &quot;,&quot; + zCoord/scale + &quot; &quot;); 
+		        	}
+		        } else {	// If the user hasn't selected the height attribute (Geometries with 3 coordinates)
+	        		for(int j=0;j&lt;coord.length;j++){
+		        		kmlout.write( coord[j].x +&quot;,&quot; + coord[j].y + &quot;,&quot; + coord[j].z/scale + &quot; &quot;); 
+		        	} // TODO sustituir NaN en coord z por 0
+	        	}
+		        
+				kmlout.write(&quot;\n&lt;/coordinates&gt;\n&quot;);
+				kmlout.write(&quot;&lt;/LinearRing&gt;\n&quot;);
+				kmlout.write(&quot;&lt;/outerBoundaryIs&gt;\n&quot;);
+				kmlout.write(&quot;&lt;/Polygon&gt;\n&quot;);
+			}	
+			if (multiGeometry) kmlout.write(&quot;&lt;/MultiGeometry&gt;\n&quot;);
+			
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+	}</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_CLA.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_CLA.html#65">65</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#92">92</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>			typeName = layer; 
+			FeatureType schema = wfs.describeFeatureType( typeName ); 	// Feature
+			
+			// Query   //TODO El CRS de KML no es sólo 4326.Hay que especificar más.
+			CoordinateReferenceSystem kmlCRS = CRS.decode(&quot;EPSG:4326&quot;); 
+			ReferencedEnvelope bbox = new ReferencedEnvelope( xMin, xMax, yMin, yMax, kmlCRS );			
+			
+			String geomName = schema.getPrimaryGeometry().getLocalName();
+			CoordinateReferenceSystem geomCRS = schema.getPrimaryGeometry().getCoordinateSystem(); 
+			
+			CreateQuery query;
+			if (!kmlCRS.equals(geomCRS)) {
+				ReferencedEnvelope geomBbox = bbox.transform( geomCRS, true, 10 ); // Sample 10 points around the envelope
+				query = new CreateQuery(geomName, geomBbox);
+			} else {
+				query = new CreateQuery(geomName, bbox);
+			}
+			
+			Query featuresIntersectsBbox = query.queryIntersects(typeName);
+			
+			
+			//De momento sólo devuelve una coleccion de features de un único FeatureType
+			//habría que pasarle como argumento featureType[] -&gt; NO, UN UNICO FEATURE PARA ELEGIR EL HEIGHT ATTRIBUTE
+			//(¿y query[]? ¿o en main?)			
+			FeatureCollection featureCollection = wfs.getFeature( typeName , featuresIntersectsBbox );</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_CLA.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_CLA.html#91">91</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#124">124</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>            createFile( featureCollection, bbox, geomCRS );
+            
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	/**
+	 * 
+	 */
+	public static void supressInfo(){
+		Logger.getLogger(&quot;org.geotools.gml&quot;).setLevel( Level.SEVERE );
+		Logger.getLogger(&quot;net.refractions.xml&quot;).setLevel( Level.SEVERE);
+	}</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\Info.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/Info.html#41">41</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\Info.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/Info.html#115">115</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		Iterator iterator = featureCollection.iterator();
+	    try {
+	        for( int count=0; iterator.hasNext(); count++) {
+	            Feature feature = (Feature) iterator.next();
+	            System.out.print(&quot;\n\n\n&quot; + feature.getID() + &quot;\t&quot;);</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\KMLFileWriter.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/KMLFileWriter.html#56">56</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#136">136</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>	}
+	
+
+
+		/**
+		 * Output KML file
+		 * 
+		 * @param featureCollection	Features to be translated into a KML format
+		 * @param bbox				Space region that defines the KML viewer focus. 
+		 * 							All the features are inside of this Bounding Box
+		 */
+		public void createFile(FeatureCollection featureCollection, Envelope bbox, CoordinateReferenceSystem geomCRS){  
+			try{				
+				kmlout.write(&quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot;?&gt;\n&quot;);
+				kmlout.write(&quot;&lt;kml xmlns=\&quot;http://earth.google.com/kml/2.2\&quot;&gt;\n\n&quot;);
+				kmlout.write(&quot;&lt;Document&gt;\n&quot;);
+				kmlout.write(&quot;&lt;name&gt;&quot;+typeName+&quot;&lt;/name&gt;\n&quot;);</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\KMLFileWriter.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/KMLFileWriter.html#222">222</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\KMLFileWriter.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/KMLFileWriter.html#226">226</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>        		for(int j=0;j&lt;coord.length;j++){
+	        		kmlout.write( coord[j].x +&quot;,&quot; + coord[j].y + &quot;,&quot; + coord[j].z/scale + &quot; &quot;);</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\KMLFileWriter.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/KMLFileWriter.html#71">71</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#152">152</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>				kmlout.write(&quot;&lt;name&gt;&quot;+typeName+&quot;&lt;/name&gt;\n&quot;);
+				
+				kmlout.write(&quot;\n&lt;Folder&gt;\n&quot;);
+				kmlout.write(&quot;&lt;name&gt;&quot;+typeName+&quot;&lt;/name&gt;\n&quot;); 
+				kmlout.write(&quot;&lt;open&gt;1&lt;/open&gt;\n&quot;);
+				kmlout.write(&quot;&lt;description&gt;test file&lt;/description&gt;\n&quot;);</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_CLA.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_CLA.html#53">53</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#81">81</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		if(map.containsKey(&quot;scale&quot;)) scale= Double.valueOf( ((String[])map.get(&quot;scale&quot;))[0] ).doubleValue();
+		
+		try {
+			supressInfo();
+			WFSClient wfs = new WFSClient();
+			wfs.getCapabilities( server ); 								// Connection</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\Info.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/Info.html#84">84</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\Info.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/Info.html#100">100</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>        System.out.println(&quot;\nGeometry attributes:&quot;);    
+    	for (int i = 0; i &lt; schema.getAttributeCount(); i++) {
+	        AttributeType at = schema.getAttributeType(i);</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\Info.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/Info.html#125">125</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#304">304</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>	        		kmlout.write( coord[j].x +&quot;,&quot; + coord[j].y + &quot;,&quot; + zCoord/scale + &quot; &quot;); </pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#167">167</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#313">313</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>			if (multiGeometry) kmlout.write(&quot;&lt;/MultiGeometry&gt;\n&quot;);
+			
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#151">151</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#154">154</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>				kmlout.write(&quot;\n&lt;Folder&gt;\n&quot;);
+				kmlout.write(&quot;&lt;name&gt;&quot;+typeName+&quot;&lt;/name&gt;\n&quot;); 
+				kmlout.write(&quot;&lt;open&gt;1&lt;/open&gt;\n&quot;);</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\KMLFileWriter.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/KMLFileWriter.html#86">86</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#124">124</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>            kmlFile.createFile( featureCollection, bbox, geomCRS );
+            
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\Info.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/Info.html#124">124</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#299">299</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>	        	for(int j=0;j&lt;coord.length;j++){</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\Info.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/Info.html#114">114</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\KMLFileWriter.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/KMLFileWriter.html#136">136</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>	private void kmlPlacemarks(FeatureCollection featureCollection, CoordinateReferenceSystem geomCRS) {
+		Iterator iterator = featureCollection.iterator();			// Feature
+        try {
+            for( int f=0; iterator.hasNext(); f++) {</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\Info.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/Info.html#117">117</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\KMLFileWriter.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/KMLFileWriter.html#139">139</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>            for( int f=0; iterator.hasNext(); f++) {
+                Feature feature = (Feature) iterator.next();</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\Info.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/Info.html#55">55</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\Info.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/Info.html#129">129</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>	            if( count == 4) break; // only 4 features
+	        }
+	    }
+	    finally {
+	    	featureCollection.close( iterator );
+	    }
+    }</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\Info.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/Info.html#43">43</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#215">215</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>            for( int f=0; iterator.hasNext(); f++) {
+                Feature feature = (Feature) iterator.next();</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\Info.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/Info.html#56">56</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#224">224</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>            }
+        }
+        finally {
+            	featureCollection.close( iterator );
+        }
+	}</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#79">79</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#80">80</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		if(map.containsKey(&quot;zAttribute&quot;)) zAttribute = ((String[])map.get(&quot;zAttribute&quot;))[0];
+		if(map.containsKey(&quot;scale&quot;)) scale= Double.valueOf( ((String[])map.get(&quot;scale&quot;))[0] ).doubleValue();</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#79">79</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#80">80</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		if(map.containsKey(&quot;zAttribute&quot;)) zAttribute = ((String[])map.get(&quot;zAttribute&quot;))[0];</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#78">78</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#79">79</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		if(map.containsKey(&quot;server&quot;)) server = ((String[])map.get(&quot;server&quot;))[0];
+		if(map.containsKey(&quot;zAttribute&quot;)) zAttribute = ((String[])map.get(&quot;zAttribute&quot;))[0];</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#78">78</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#80">80</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		if(map.containsKey(&quot;server&quot;)) server = ((String[])map.get(&quot;server&quot;))[0];</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\KMLFileWriter.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/KMLFileWriter.html#52">52</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#126">126</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 
+	 */
+	public static void supressInfo(){</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\Info.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/Info.html#68">68</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\Info.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/Info.html#99">99</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>    public static void getGeometryAttributes(FeatureType schema) {
+        System.out.println(&quot;\nGeometry attributes:&quot;);    </pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\Info.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/Info.html#45">45</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\Info.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/Info.html#121">121</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>	            System.out.println(feature.getPrimaryGeometry().getNumGeometries() + &quot;\n&quot;);
+	            for(int i=0; i&lt;feature.getPrimaryGeometry().getNumGeometries(); i++){</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\Info.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/Info.html#30">30</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\Info.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/Info.html#74">74</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		for(int i=0;i&lt;attributes.length;i++)
+			System.out.println( attributes[i] );</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#78">78</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#81">81</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		if(map.containsKey(&quot;scale&quot;)) scale= Double.valueOf( ((String[])map.get(&quot;scale&quot;))[0] ).doubleValue();</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\KMLFileWriter.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/KMLFileWriter.html#52">52</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#169">169</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\Info.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/Info.html#122">122</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\WFS_KML_gw_Servlet.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/WFS_KML_gw_Servlet.html#248">248</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		for(int g=0; g&lt;feature.getPrimaryGeometry().getNumGeometries(); g++){  // Geometry</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>es\uva\pfc\eduardoRiesco\Info.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/Info.html#121">121</a>
+</td>
+</tr>
+<tr class="a"><td>es\uva\pfc\eduardoRiesco\KMLFileWriter.java</td>
+<td><a href="./xref/es/uva/pfc/eduardoRiesco/KMLFileWriter.html#166">166</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		if (feature.getPrimaryGeometry().getNumGeometries()&gt;1){	</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+</div>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2008
+    
+          Universidad de Valladolid
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>
