@@ -126,12 +126,12 @@
   	<repository>
   		<id>ITAST_Maven</id>
   		<name>IDELAB repository</name>
-  		<url>http://itastmain.tel.uva.es/nexus/content/repositories/releases</url>
+  		<url>http://idelab.uva.es/nexus/content/repositories/releases</url>
   	</repository>
   	<snapshotRepository>
   		<id>ITAST_Maven</id>
   		<name>IDELAB repository</name>
-  		<url>http://itastmain.tel.uva.es/nexus/content/repositories/snapshots</url>
+  		<url>http://idelab.uva.es/nexus/content/repositories/snapshots</url>
   	</snapshotRepository>
     <!--<downloadUrl>http://mojo.codehaus.org/my-project</downloadUrl>
     <status>deployed</status>
