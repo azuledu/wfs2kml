@@ -3,15 +3,15 @@
   			xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   
-  <groupId>es.uva.pfc.eduardoRiesco</groupId>
-  <artifactId>WFS_KML_gw</artifactId>
+  <groupId>es.uva.idelab</groupId>
+  <artifactId>wfs2kml</artifactId>
   <packaging>pom</packaging>
-  <version>1.0.1</version>
+  <version>1.1-SNAPSHOT</version>
   
   <name>WFS-KML Gateway</name>
   <description>Gateway to transform WFS requests in KML responses with special emphasis in 3D representation of features</description>
-  <url>http://eduardoriesco/wfs_kml_gw</url>
-  <inceptionYear>2008</inceptionYear>
+  <url>http://itastdevserver.tel.uva.es/dev/wfs2kml</url>
+  <inceptionYear>2009</inceptionYear>
   
   <modules>
     <module>WFS_KML_gw_CLA</module>
@@ -71,11 +71,20 @@
     </extensions>
     
   </build>
+  <scm>
+  	<connection>scm:svn:http://itastdevserver.tel.uva.es/dev/wfs2kml/browser/trunk/wfs2kml</connection>
+  	<developerConnection>scm:svn:http://itastdevserver.tel.uva.es/dev/wfs2kml/browser/trunk/wfs2kml</developerConnection>
+  	<url>http://itastdevserver.tel.uva.es/dev/wfs2kml/browser/trunk/wfs2kml</url>
+  </scm>
 
   <organization>
-    <name>Universidad de Valladolid</name>
-    <url>http://www.uva.es</url>
+    <name>IDELab (University of Valladolid)</name>
+    <url>http://www.idelab.uva.es</url>
   </organization>
+  <issueManagement>
+  	<system>Trac</system>
+  	<url>http://itastdevserver.tel.uva.es/dev/wfs2kml</url>
+  </issueManagement>
   
   <developers>
     <developer>
@@ -114,6 +123,16 @@
   </reporting>
     
   <distributionManagement>
+  	<repository>
+  		<id>ITAST_Maven</id>
+  		<name>IDELAB repository</name>
+  		<url>http://itastmain.tel.uva.es/nexus/content/repositories/releases</url>
+  	</repository>
+  	<snapshotRepository>
+  		<id>ITAST_Maven</id>
+  		<name>IDELAB repository</name>
+  		<url>http://itastmain.tel.uva.es/nexus/content/repositories/snapshots</url>
+  	</snapshotRepository>
     <!--<downloadUrl>http://mojo.codehaus.org/my-project</downloadUrl>
     <status>deployed</status>
     <repository>
@@ -131,9 +150,9 @@
       <layout>legacy</layout>
     </snapshotRepository> -->
     <site>
-      <id>EduardoRiesco</id>
-      <name>Eduardo Riesco site</name>
-      <url>file://C:\Documents and Settings\Ed\workspace java\WFS_KML_gw\production_site</url>
+      <id>site</id>
+      <name>WFS2KML site</name>
+      <url>dav:http://itastdevserver.tel.uva.es/private/wfs2kml</url>
     </site>
     <!--<relocation>
       <groupId>org.apache</groupId>
@@ -164,14 +183,6 @@
       <id>geotools</id>
       <name>Geotools repository</name>
       <url>http://maven.geotools.fr/repository</url>
-    </repository>
-    <repository>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>central</id>
-      <name>Maven Repository Switchboard</name>
-      <url>http://repo1.maven.org/maven2</url>
     </repository>
   </repositories>
   
