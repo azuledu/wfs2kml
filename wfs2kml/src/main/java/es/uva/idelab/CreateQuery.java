@@ -1,4 +1,4 @@
-package es.uva.pfc.eduardoRiesco;
+package es.uva.idelab;
 
 import org.geotools.data.DefaultQuery;
 import org.geotools.data.Query;

@@ -1,4 +1,4 @@
-package es.uva.pfc.eduardoRiesco;
+package es.uva.idelab;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -53,8 +53,8 @@ public class WFSClient {
 		return( schema );		
 	}
 
-	//De momento sólo devuelve una coleccion de features de un único FeatureType
-	//habría que pasarle como argumento featureType[] (¿y query[]? ¿o en main?)
+	//De momento sï¿½lo devuelve una coleccion de features de un ï¿½nico FeatureType
+	//habrï¿½a que pasarle como argumento featureType[] (ï¿½y query[]? ï¿½o en main?)
 	/**
 	 * @param typeName		Feature type name 
 	 * @param query			Conditions accomplished by the features returned

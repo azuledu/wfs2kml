@@ -14,16 +14,13 @@
   <inceptionYear>2009</inceptionYear>
   
   <modules>
-    <module>WFS_KML_gw_CLA</module>
-    <module>WFS_KML_gw_Servlet</module>
+    <module>wfs2kml_cli</module>
+    <module>wfs2kml_servlet</module>
   </modules>
   
   <build>
     <pluginManagement>
-      <plugins>
-      
-        <finalName>WFS_KML_gw_Servlet</finalName>
-        
+      <plugins>        
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
@@ -50,15 +47,6 @@
            </classpathContainers>
          </configuration>
         </plugin>
-
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-site-plugin</artifactId>
-          <!--<configuration>
-            <locales>en,es</locales>
-          </configuration>-->
-        </plugin> 
-        
       </plugins>
     </pluginManagement>
 
@@ -88,7 +76,6 @@
   
   <developers>
     <developer>
-      <id>azuledu</id>
       <name>Eduardo Riesco</name>
       <url>http://eduardoriesco.com</url>
       <email>eduardo.riesco@gmail.com</email>
@@ -102,7 +89,7 @@
   <contributors>
     <contributor>
       <name>Juan pablo de Castro</name>
-      <url>http://www.itnt.uva.es</url>
+      <url>http://www.idelab.uva.es</url>
       <email>juacas@tel.uva.es</email>
       <organization>Universidad de Valladolid</organization>
       <organizationUrl>http://www.uva.es</organizationUrl>
