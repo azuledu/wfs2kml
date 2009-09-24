@@ -4,13 +4,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>  
-    <groupId>es.uva.pfc.eduardoRiesco</groupId>
-    <artifactId>WFS_KML_gw</artifactId>
+    <groupId>es.uva.idelab</groupId>
+    <artifactId>wfs2kml</artifactId>
     <version>1.0.1</version>
   </parent>
   
-  <artifactId>WFS_KML_gw_CLA</artifactId>
-  <name>Command Line App</name>
+  <artifactId>wfs2kml_cli</artifactId>
+  <name>Command Line Interface</name>
   <packaging>jar</packaging>
   <description>Gateway to transform WFS requests in KML responses with special emphasis in 3D representation of features</description>
   

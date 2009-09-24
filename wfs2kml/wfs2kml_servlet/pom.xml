@@ -4,12 +4,12 @@
   <modelVersion>4.0.0</modelVersion>
   
   <parent>  
-    <groupId>es.uva.pfc.eduardoRiesco</groupId>
-    <artifactId>WFS_KML_gw</artifactId>
+    <groupId>es.uva.idelab</groupId>
+    <artifactId>wfs2kml</artifactId>
     <version>1.0.1</version>
   </parent>
 
-  <artifactId>WFS_KML_gw_Servlet</artifactId>
+  <artifactId>wfs2kml_servlet</artifactId>
   <packaging>war</packaging>
   <name>Servlet</name>
   <description>Gateway to transform WFS requests in KML responses with special emphasis in 3D representation of features</description>
