@@ -1,4 +1,4 @@
-package es.uva.pfc.eduardoRiesco;
+package es.uva.idelab;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -85,14 +85,14 @@ import com.vividsolutions.jts.geom.Geometry;
 			WFSClient wfs = new WFSClient();
 			wfs.getCapabilities( server ); 								// Connection
 			// TODO No hay que elegir el layer, solo el Bbox y aparecen todos los layer con datos en ese Bbox.
-			// Quizá sea bueno que no se recuperen los datos, solo el nombre del layer y que los datos se 
+			// Quizï¿½ sea bueno que no se recuperen los datos, solo el nombre del layer y que los datos se 
 			// recuperen cuando se seleccione la carpeta que representa ese layer en GEarth. 
-			// Si no se especifica layer se recuperan todos. Si se especifica, sólo ese layer.
+			// Si no se especifica layer se recuperan todos. Si se especifica, sï¿½lo ese layer.
 			// ACT Un solo layer para que se pueda elegir el height attribute de ese layer
 			typeName = layer; 
 			FeatureType schema = wfs.describeFeatureType( typeName ); 	// Feature
 			
-			// Query   //TODO El CRS de KML no es sólo 4326.Hay que especificar más.
+			// Query   //TODO El CRS de KML no es sï¿½lo 4326.Hay que especificar mï¿½s.
 			CoordinateReferenceSystem kmlCRS = CRS.decode("EPSG:4326"); 
 			ReferencedEnvelope bbox = new ReferencedEnvelope( xMin, xMax, yMin, yMax, kmlCRS );			
 			
@@ -110,9 +110,9 @@ import com.vividsolutions.jts.geom.Geometry;
 			Query featuresIntersectsBbox = query.queryIntersects(typeName);
 			
 			
-			//De momento sólo devuelve una coleccion de features de un único FeatureType
-			//habría que pasarle como argumento featureType[] -> NO, UN UNICO FEATURE PARA ELEGIR EL HEIGHT ATTRIBUTE
-			//(¿y query[]? ¿o en main?)			
+			//De momento sï¿½lo devuelve una coleccion de features de un ï¿½nico FeatureType
+			//habrï¿½a que pasarle como argumento featureType[] -> NO, UN UNICO FEATURE PARA ELEGIR EL HEIGHT ATTRIBUTE
+			//(ï¿½y query[]? ï¿½o en main?)			
 			FeatureCollection featureCollection = wfs.getFeature( typeName , featuresIntersectsBbox );
 			//Info.getFeature(schema);
 			

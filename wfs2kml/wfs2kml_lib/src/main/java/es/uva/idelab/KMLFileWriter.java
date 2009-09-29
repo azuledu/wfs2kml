@@ -163,11 +163,11 @@ public class KMLFileWriter {
 		try {
 			
 		kmlCRS = CRS.decode("EPSG:4326");
-		if (feature.getPrimaryGeometry().getNumGeometries()>1){	
+		if (feature.getDefaultGeometry().getNumGeometries()>1){	
 			kmlout.write("<MultiGeometry>\n");
 			multiGeometry = true;
 		}
-		for(int g=0; g<feature.getPrimaryGeometry().getNumGeometries(); g++){  // Geometry
+		for(int g=0; g<feature.getDefaultGeometry().getNumGeometries(); g++){  // Geometry
 			kmlout.write("<Polygon>\n");					// 	TODO geometrias diferentes de "poligon" 
 			kmlout.write("<extrude>1</extrude>\n");
 			//kmlout.write("<tessellate>1</tessellate>\n");  	TODO Activar para poligonos grandes.
@@ -191,7 +191,7 @@ public class KMLFileWriter {
 //			findBestGeometryType(Geometry geom)
 //	          Determine the best ShapeType for a given Geometry.
 			
-			Geometry geomGeometry = feature.getPrimaryGeometry().getGeometryN(g);
+			Geometry geomGeometry = feature.getDefaultGeometry().getGeometryN(g);
 			
 			MathTransform transform = CRS.findMathTransform(geomCRS, kmlCRS);
 			Geometry kmlGeometry = JTS.transform( geomGeometry, transform);

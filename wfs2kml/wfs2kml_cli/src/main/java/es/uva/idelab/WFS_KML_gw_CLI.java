@@ -11,6 +11,9 @@ import org.geotools.referencing.CRS;
 
 import org.opengis.referencing.crs.CoordinateReferenceSystem;
 
+import es.uva.idelab.WFSClient;
+import es.uva.idelab.CreateQuery;
+
 
 /**
  * Entry point of the application
@@ -69,8 +72,8 @@ public class WFS_KML_gw_CLI {
 			CoordinateReferenceSystem kmlCRS = CRS.decode("EPSG:4326");
 			ReferencedEnvelope bbox = new ReferencedEnvelope( xMin, xMax, yMin, yMax, kmlCRS );			
 			
-			String geomName = schema.getPrimaryGeometry().getLocalName();
-			CoordinateReferenceSystem geomCRS = schema.getPrimaryGeometry().getCoordinateSystem(); 
+			String geomName = schema.getDefaultGeometry().getLocalName();
+			CoordinateReferenceSystem geomCRS = schema.getDefaultGeometry().getCoordinateSystem(); 
 			
 			CreateQuery query;
 			if (!kmlCRS.equals(geomCRS)) { 	// Transform data CRS into KML standart CRS (4326) 
