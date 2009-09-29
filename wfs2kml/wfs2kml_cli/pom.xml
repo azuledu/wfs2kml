@@ -11,7 +11,7 @@
   <groupId>es.uva.idelab</groupId>
   
   <artifactId>wfs2kml_cli</artifactId>
-  <name>WFS-KML  Command Line Interface</name>
+  <name>WFS-KML Command Line Interface</name>
   <packaging>jar</packaging>
   <version>1.1-SNAPSHOT</version>
   <description>Gateway to transform WFS requests in KML responses with special emphasis in 3D representation of features</description>

@@ -1,4 +1,4 @@
-package es.uva.pfc.eduardoRiesco;
+package es.uva.idelab;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,7 +18,7 @@ import org.opengis.referencing.crs.CoordinateReferenceSystem;
  * @author Eduardo Riesco
  *
  */
-public class WFS_KML_gw_CLA {
+public class WFS_KML_gw_CLI {
 
 	static String server;
 	static String layer;
@@ -59,7 +59,7 @@ public class WFS_KML_gw_CLA {
 			WFSClient wfs = new WFSClient();
 			wfs.getCapabilities( server ); 								
 			// TODO No hay que elegir el layer, solo el Bbox y aparecen todos los layer con datos en ese Bbox.
-			// Quizá sea bueno que no se recuperen los datos, solo el nombre del layer y que los datos se 
+			// Quizï¿½ sea bueno que no se recuperen los datos, solo el nombre del layer y que los datos se 
 			// recuperen cuando se seleccione la carpeta que representa ese layer en GEarth. 
 			// ACTUALIZACION Un solo layer para que se pueda elegir el height attribute de ese layer
 			String typeName = layer; 
@@ -82,8 +82,8 @@ public class WFS_KML_gw_CLA {
 			
 			Query featuresIntersectsBbox = query.queryIntersects(typeName);
 			
-			//De momento sólo devuelve una coleccion de features de un único FeatureType
-			//habría que pasarle como argumento featureType[] -> NO, UN UNICO FEATURE PARA ELEGIR EL HEIGHT ATTRIBUTE			
+			//De momento sï¿½lo devuelve una coleccion de features de un ï¿½nico FeatureType
+			//habrï¿½a que pasarle como argumento featureType[] -> NO, UN UNICO FEATURE PARA ELEGIR EL HEIGHT ATTRIBUTE			
 			FeatureCollection featureCollection = wfs.getFeature( typeName, featuresIntersectsBbox );
 			//Info.getFeature(schema);
 			
