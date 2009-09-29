@@ -14,6 +14,7 @@
   <inceptionYear>2009</inceptionYear>
   
   <modules>
+    <module>wfs2kml_lib</module>
     <module>wfs2kml_cli</module>
     <module>wfs2kml_servlet</module>
   </modules>
@@ -170,6 +171,11 @@
       <id>geotools</id>
       <name>Geotools repository</name>
       <url>http://maven.geotools.fr/repository</url>
+    </repository>
+    <repository>
+    	<id>idelab</id>
+    	<name>IDELab Repository</name>
+    	<url>http://idelab.uva.es/nexus/content/groups/public</url>
     </repository>
   </repositories>
   
