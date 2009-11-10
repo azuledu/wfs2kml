@@ -29,24 +29,6 @@
             <source>1.4</source>
             <target>1.4</target>
           </configuration>
-        </plugin>		
-
-        <plugin>
-         <groupId>org.apache.maven.plugins</groupId>
-         <artifactId>maven-eclipse-plugin</artifactId>
-         <configuration>
-           <projectNameTemplate>[artifactId]</projectNameTemplate>
-           <wtpmanifest>true</wtpmanifest>
-           <wtpapplicationxml>true</wtpapplicationxml>
-           <wtpversion>1.5</wtpversion>
-           <manifest>${basedir}/src/main/resources/META-INF/MANIFEST.MF</manifest>
-           <classpathContainers>
-              <classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
-              <classpathContainer>org.eclipse.jst.j2ee.internal.web.container</classpathContainer>
-              <classpathContainer>org.eclipse.jst.j2ee.internal.module.container</classpathContainer>
-              <classpathContainer>org.eclipse.jst.server.core.container/org.eclipse.jst.server.core.runtimeTarget/J2EE Runtime Library"</classpathContainer>
-           </classpathContainers>
-         </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -55,7 +37,7 @@
       <extension>
         <groupId>org.apache.maven.wagon</groupId>
         <artifactId>wagon-ftp</artifactId>
-        <version>1.0-beta-2</version>
+        <version>1.0-beta-6</version>
       </extension>
     </extensions>
     
