@@ -114,12 +114,12 @@
   	<repository>
   		<id>ITAST_Maven</id>
   		<name>IDELAB repository</name>
-  		<url>http://idelab.uva.es/nexus/content/repositories/releases</url>
+  		<url>http://rep.idelab.uva.es/content/repositories/releases</url>
   	</repository>
   	<snapshotRepository>
   		<id>ITAST_Maven</id>
   		<name>IDELAB repository</name>
-  		<url>http://idelab.uva.es/nexus/content/repositories/snapshots</url>
+  		<url>http://rep.idelab.uva.es/content/repositories/snapshots</url>
   	</snapshotRepository>
     <!--<downloadUrl>http://mojo.codehaus.org/my-project</downloadUrl>
     <status>deployed</status>
@@ -173,9 +173,9 @@
       <url>http://maven.geotools.fr/repository</url>
     </repository>
     <repository>
-    	<id>idelab</id>
+    	<id>ITAST_Maven</id>
     	<name>IDELab Repository</name>
-    	<url>http://idelab.uva.es/nexus/content/groups/public</url>
+    	<url>http://rep.idelab.uva.es/content/groups/public</url>
     </repository>
   </repositories>
   
