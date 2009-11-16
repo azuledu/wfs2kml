@@ -19,6 +19,10 @@
     <module>wfs2kml_servlet</module>
   </modules>
   
+  <properties>
+    <geotools.version>2.4.5</geotools.version>
+  </properties>
+  
   <build>
     <pluginManagement>
       <plugins>        
@@ -36,15 +40,15 @@
     <extensions>
       <extension>
         <groupId>org.apache.maven.wagon</groupId>
-        <artifactId>wagon-ftp</artifactId>
-        <version>1.0-beta-6</version>
+        <artifactId>wagon-webdav</artifactId>
+        <version>1.0-beta-2</version>
       </extension>
     </extensions>
     
   </build>
   <scm>
-  	<connection>scm:svn:http://itastdevserver.tel.uva.es/dev/wfs2kml/browser/trunk/wfs2kml</connection>
-  	<developerConnection>scm:svn:http://itastdevserver.tel.uva.es/dev/wfs2kml/browser/trunk/wfs2kml</developerConnection>
+  	<connection>scm:svn:http://itastdevserver.tel.uva.es/svn/wfs2kml/trunk/wfs2kml</connection>
+  	<developerConnection>scm:svn:http://itastdevserver.tel.uva.es/svn/wfs2kml/trunk/wfs2kml</developerConnection>
   	<url>http://itastdevserver.tel.uva.es/dev/wfs2kml/browser/trunk/wfs2kml</url>
   </scm>
 
@@ -60,11 +64,12 @@
   <developers>
     <developer>
       <name>Eduardo Riesco</name>
-      <url>http://eduardoriesco.com</url>
       <email>eduardo.riesco@gmail.com</email>
       <roles>
         <role>Developer</role>
       </roles>
+      <organization>IDELab - Universidad de Valladolid</organization>
+      <organizationUrl>http://idelab.uva.es</organizationUrl>
       <timezone>+1</timezone>
     </developer>
   </developers>
@@ -72,10 +77,9 @@
   <contributors>
     <contributor>
       <name>Juan pablo de Castro</name>
-      <url>http://www.idelab.uva.es</url>
       <email>juacas@tel.uva.es</email>
-      <organization>Universidad de Valladolid</organization>
-      <organizationUrl>http://www.uva.es</organizationUrl>
+      <organization>IDELab - Universidad de Valladolid</organization>
+      <organizationUrl>http://idelab.uva.es</organizationUrl>
       <roles>
         <role>Coordinator</role>
       </roles>
@@ -83,15 +87,6 @@
     </contributor>
   </contributors>
   
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-project-info-reports-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </reporting>
-    
   <distributionManagement>
   	<repository>
   		<id>ITAST_Maven</id>
@@ -103,61 +98,34 @@
   		<name>IDELAB repository</name>
   		<url>http://rep.idelab.uva.es/content/repositories/snapshots</url>
   	</snapshotRepository>
-    <!--<downloadUrl>http://mojo.codehaus.org/my-project</downloadUrl>
-    <status>deployed</status>
-    <repository>
-      <uniqueVersion>false</uniqueVersion>
-      <id>tomcat</id>
-      <name>Tomcat</name>
-      <url>file://C:\Archivos de programa\apache-tomcat-6.0.14\webapps</url>
-      <layout>default</layout>
-    </repository>
-    <snapshotRepository>
-      <uniqueVersion>true</uniqueVersion>
-      <id>propSnap</id>
-      <name>Propellors Snapshots</name>
-      <url>sftp://propellers.net/maven</url>
-      <layout>legacy</layout>
-    </snapshotRepository> -->
     <site>
       <id>site</id>
       <name>WFS2KML site</name>
-      <url>dav:http://itastdevserver.tel.uva.es/private/wfs2kml</url>
+      <url>dav:http://itastdevserver.tel.uva.es/mvn/wfs2kml</url>
     </site>
-    <!--<relocation>
-      <groupId>org.apache</groupId>
-      <artifactId>my-project</artifactId>
-      <version>1.0</version>
-      <message>We have moved the Project under Apache</message>
-    </relocation> -->
   </distributionManagement>
   
   <repositories>
     <repository>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>ibiblio</id>
-      <name>Ibiblio - the public's library and digital archive</name>
-      <url>http://www.ibiblio.org/maven2</url>
-    </repository>
-    <repository>
-      <id>refractions</id>
-      <name>Refractions Research Maven 2 Repository</name>
-      <url>http://lists.refractions.net/m2</url>
-    </repository>
-    <repository>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>geotools</id>
-      <name>Geotools repository</name>
-      <url>http://maven.geotools.fr/repository</url>
-    </repository>
-    <repository>
     	<id>ITAST_Maven</id>
     	<name>IDELab Repository</name>
     	<url>http://rep.idelab.uva.es/content/groups/public</url>
+    </repository>
+    <repository>
+    	<id>maven2-repository.dev.java.net</id>
+    	<name>Java.net repository</name>
+    	<url>http://download.java.net/maven/2</url>
+    	<snapshots>
+    		<enabled>false</enabled>
+    	</snapshots>
+    </repository>
+    <repository>
+    	<id>osgeo</id>
+    	<name>Open Source Geospatial Foundation Repository</name>
+    	<url>http://download.osgeo.org/webdav/geotools/</url>
+    	<snapshots>
+    		<enabled>false</enabled>
+    	</snapshots>
     </repository>
   </repositories>
   
@@ -171,27 +139,27 @@
     <dependency>
       <groupId>org.geotools</groupId>
       <artifactId>gt2-main</artifactId>
-      <version>2.4.4</version>
+      <version>${geotools.version}</version>
     </dependency>
     <dependency>
       <groupId>org.geotools</groupId>
       <artifactId>gt2-wfs</artifactId>
-      <version>2.4.4</version>
+      <version>${geotools.version}</version>
     </dependency>
     <dependency>
       <groupId>org.geotools</groupId>
       <artifactId>gt2-epsg-wkt</artifactId>
-      <version>2.4.4</version>
+      <version>${geotools.version}</version>
     </dependency>
     <dependency>
       <groupId>org.geotools</groupId>
       <artifactId>gt2-epsg-hsql</artifactId>
-      <version>2.4.4</version>
+      <version>${geotools.version}</version>
     </dependency>
     <dependency>
       <groupId>org.geotools</groupId>
       <artifactId>gt2-epsg-extension</artifactId>
-      <version>2.4.4</version>
+      <version>${geotools.version}</version>
     </dependency>
 
   </dependencies>

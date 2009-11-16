@@ -96,8 +96,8 @@ import com.vividsolutions.jts.geom.Geometry;
 			CoordinateReferenceSystem kmlCRS = CRS.decode("EPSG:4326"); 
 			ReferencedEnvelope bbox = new ReferencedEnvelope( xMin, xMax, yMin, yMax, kmlCRS );			
 			
-			String geomName = schema.getPrimaryGeometry().getLocalName();
-			CoordinateReferenceSystem geomCRS = schema.getPrimaryGeometry().getCoordinateSystem(); 
+			String geomName = schema.getDefaultGeometry().getLocalName();
+			CoordinateReferenceSystem geomCRS = schema.getDefaultGeometry().getCoordinateSystem(); 
 			
 			CreateQuery query;
 			if (!kmlCRS.equals(geomCRS)) {
@@ -241,11 +241,11 @@ import com.vividsolutions.jts.geom.Geometry;
 				
 			kmlCRS = CRS.decode("EPSG:4326");
 			
-			if (feature.getPrimaryGeometry().getNumGeometries()>1){	
+			if (feature.getDefaultGeometry().getNumGeometries()>1){	
 				kmlout.write("<MultiGeometry>\n");
 				multiGeometry = true;
 			}
-			for(int g=0; g<feature.getPrimaryGeometry().getNumGeometries(); g++){  // Geometry
+			for(int g=0; g<feature.getDefaultGeometry().getNumGeometries(); g++){  // Geometry
 				kmlout.write("<Polygon>\n");					// 	TODO geometrias diferentes de "poligon" 
 				kmlout.write("<extrude>1</extrude>\n");
 				//kmlout.write("<tessellate>1</tessellate>\n");  	TODO Activar para poligonos grandes.
@@ -269,7 +269,7 @@ import com.vividsolutions.jts.geom.Geometry;
 //				findBestGeometryType(Geometry geom)
 //		          Determine the best ShapeType for a given Geometry.
 				
-				Geometry geomGeometry = feature.getPrimaryGeometry().getGeometryN(g);
+				Geometry geomGeometry = feature.getDefaultGeometry().getGeometryN(g);
 				
 				MathTransform transform = CRS.findMathTransform(geomCRS, kmlCRS);
 				Geometry kmlGeometry = JTS.transform( geomGeometry, transform);
