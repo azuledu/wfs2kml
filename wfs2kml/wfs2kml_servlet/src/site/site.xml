@@ -32,11 +32,7 @@
     <!-- ==================================================== -->
     <!--     Menus to appears on the left side of each page   -->
     <!-- ==================================================== -->  
-    <links>
-      <item name="UVA" href="http://www.uva.es/" />
-      <item name="WMS Cache Wrapper" href="http://itastserver.tel.uva.es/WMS_C_wrapper/"/>
-    </links>
-
+ 
     <menu ref="parent"/>
 
     <menu name="Users Guide">
