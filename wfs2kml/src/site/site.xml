@@ -1,42 +1,39 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <project name="WFS-KML Gateway">
-
-<!--
   <skin>
-    <groupId>es.uva.pfc.eduardoRiesco</groupId>
-    <artifactId>WFS_KML_gw_skin</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>es.uva.idelab</groupId>
+    <artifactId>idelab-skin</artifactId>
+    <version>1.1-SNAPSHOT</version>
   </skin>
--->
-  
   <publishDate position="left" format="dd MMM yyyy"/>
-<!--
   <bannerLeft>
-    <name>Maven</name>
-    <src>http://maven.apache.org/images/apache-maven-project.png</src>
-    <href>http://maven.apache.org/</href>
+    <name>IDELab</name>
+    <src>http://idelab.uva.es/sites/all/themes/stopdesign_idelab/img/world_logo.png</src>
+    <href>http://idelab.uva.es/</href>
   </bannerLeft>
-   -->
-  <bannerLeft>
-    <name>Mapa</name>
-    <src>images/header_5.JPG</src>
-    <href>http://eduardoriesco/wfs_kml_gw/</href>
-  </bannerLeft>
-
-  
-  <body class="composite">
-  
+  <bannerRight>
+    <name>${project.name}</name>
+    <href>http://idelab.uva.es/public/${project.artifactId}</href>
+  </bannerRight>
+  <body>
+    <!-- ==================================================== -->
+    <!--     Links to appears just below the right banner     -->
+    <!-- ==================================================== -->
     <links>
-      <item name="UVA" href="http://www.uva.es/" />
-      <item name="WMS Cache Wrapper" href="http://itastserver.tel.uva.es/WMS_C_wrapper/"/>
+      <item name="IDELab" href="http://www.idelab.uva.es"/>
     </links>
-    
+
+    <!-- ==================================================== -->
+    <!--     Menus to appears on the left side of each page   -->
+    <!-- ==================================================== -->
     <menu name="WFS-KML Gateway">
+      <item name="Web site" href="http://itastdevserver.tel.uva.es/proyectos/wfs2kml"/>    
       <item name="Introduction" href="index.html"/>
       <item name="Features" href="features.html"/>
       <item name="Glossary" href="glossary.html"/>
       <item name="Examples" href="examples.html"/>
       <item name="Screenshots" href="screenshots.html"/>
+      <item name="Download" href="http://dev.idelab.uva.es/routeserver/wiki/download"/>      
     </menu>
     
     <menu ref="modules"/>

@@ -1,40 +1,38 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<project name="WFS-KML Gateway Command Line Application">
-<!--
+<project name="WFS-KML Gateway">
   <skin>
-    <groupId>es.uva.pfc.eduardoRiesco</groupId>
-    <artifactId>WFS_KML_gw_skin</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>es.uva.idelab</groupId>
+    <artifactId>idelab-skin</artifactId>
+    <version>1.1-SNAPSHOT</version>
   </skin>
--->  
   <publishDate position="left" format="dd MMM yyyy"/>
-<!--
   <bannerLeft>
-    <name>Maven</name>
-    <src>http://maven.apache.org/images/apache-maven-project.png</src>
-    <href>http://maven.apache.org/</href>
+    <name>IDELab</name>
+    <src>http://idelab.uva.es/sites/all/themes/stopdesign_idelab/img/world_logo.png</src>
+    <href>http://idelab.uva.es/</href>
   </bannerLeft>
-   -->
-  <bannerLeft>
-    <name>Mapa</name>
-    <src>images/header_5.JPG</src>
-    <href>http://eduardoriesco/wfs_kml_gw/</href>
-  </bannerLeft>
-
+  <bannerRight>
+    <name>${project.name}</name>
+    <href>http://idelab.uva.es/public/${project.artifactId}</href>
+  </bannerRight>
+  <body>
   
-  <body class="composite">
-  
-  <breadcrumbs>
+    <breadcrumbs>
       <item name="WFS-KML Gateway" href="http://www.eduardoriesco.com/wfs_kml_gw"/>
       <item name="Command Line Application" href="http://www.eduardoriesco.com/wfs_kml_gw/WFS_KML_gw_CLA"/>
-  </breadcrumbs>
-
+    </breadcrumbs>
   
+    <!-- ==================================================== -->
+    <!--     Links to appears just below the right banner     -->
+    <!-- ==================================================== -->
     <links>
-      <item name="UVA" href="http://www.uva.es/" />
-      <item name="WMS Cache Wrapper" href="http://itastserver.tel.uva.es/WMS_C_wrapper/"/>
+      <item name="IDELab" href="http://www.idelab.uva.es"/>
     </links>
 
+    <!-- ==================================================== -->
+    <!--     Menus to appears on the left side of each page   -->
+    <!-- ==================================================== -->
+ 
     <menu ref="parent"/>
 
     <menu name="Users Guide">
