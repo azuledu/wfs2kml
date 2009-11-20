@@ -13,7 +13,7 @@
   </bannerLeft>
   <bannerRight>
     <name>${project.name}</name>
-    <href>http://idelab.uva.es/public/${project.artifactId}</href>
+    <href>http://mvn.idelab.uva.es/${project.artifactId}</href>
   </bannerRight>
   <body>
     <!-- ==================================================== -->
@@ -27,16 +27,16 @@
     <!--     Menus to appears on the left side of each page   -->
     <!-- ==================================================== -->
     <menu name="WFS-KML Gateway">
-      <item name="Web site" href="http://itastdevserver.tel.uva.es/proyectos/wfs2kml"/>    
       <item name="Introduction" href="index.html"/>
       <item name="Features" href="features.html"/>
       <item name="Glossary" href="glossary.html"/>
       <item name="Examples" href="examples.html"/>
       <item name="Screenshots" href="screenshots.html"/>
-      <item name="Download" href="http://dev.idelab.uva.es/routeserver/wiki/download"/>      
+      <item name="Download" href="http://rep.idelab.uva.es"/>    
+      <item name="Web site" href="http://itastdevserver.tel.uva.es/proyectos/wfs2kml"/>    
     </menu>
     
-    <menu ref="modules"/>
+    <menu ref="modules" />
     
     <menu ref="reports" collapse="true" />
 

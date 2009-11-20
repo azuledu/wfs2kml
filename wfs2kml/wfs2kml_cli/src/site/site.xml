@@ -13,14 +13,9 @@
   </bannerLeft>
   <bannerRight>
     <name>${project.name}</name>
-    <href>http://idelab.uva.es/public/${project.artifactId}</href>
+    <href>http://mvn.idelab.uva.es/${project.artifactId}</href>
   </bannerRight>
   <body>
-  
-    <breadcrumbs>
-      <item name="WFS-KML Gateway" href="http://www.eduardoriesco.com/wfs_kml_gw"/>
-      <item name="Command Line Application" href="http://www.eduardoriesco.com/wfs_kml_gw/WFS_KML_gw_CLA"/>
-    </breadcrumbs>
   
     <!-- ==================================================== -->
     <!--     Links to appears just below the right banner     -->
@@ -33,8 +28,8 @@
     <!--     Menus to appears on the left side of each page   -->
     <!-- ==================================================== -->
  
-    <menu ref="parent"/>
-
+    <menu ref="parent" />
+    <menu ref="modules" />
     <menu name="Users Guide">
       <item name="Introduction" href="index.html"/>
       <item name="Requirements" href="requirements.html"/>
@@ -43,8 +38,6 @@
     </menu>
 
     <menu ref="reports" collapse="true" />
-    
-    <menu ref="modules"/>
-    
+      
   </body>  
 </project>

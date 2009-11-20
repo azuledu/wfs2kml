@@ -163,4 +163,87 @@
     </dependency>
 
   </dependencies>
+  
+    <reporting>
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <links>
+            <link>http://java.sun.com/j2se/1.5.0/docs/api</link>
+            <link>http://www.vividsolutions.com/jts/javadoc/</link>
+            <link>http://geoapi.sourceforge.net/2.0/javadoc/</link>
+            <link>http://javadoc.geotools.fr/2.4/</link>
+            <link>http://java.sun.com/j2ee/1.4/docs/api/</link>
+          </links>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>taglist-maven-plugin</artifactId>
+        <configuration>
+          <tags>
+            <tag>FIXME</tag>
+            <tag>@fixme</tag>
+            <tag>TODO</tag>
+            <tag>@todo</tag>
+          </tags>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <configuration>
+          <effort>Max</effort>
+          <threshold>Exp</threshold>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>javancss-maven-plugin</artifactId>
+      </plugin>
+  
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <configuration>
+          <rulesets>
+            <ruleset>/rulesets/basic.xml</ruleset>
+            <ruleset>/rulesets/imports.xml</ruleset>
+            <ruleset>/rulesets/unusedcode.xml</ruleset>
+            <ruleset>/rulesets/strictexception.xml</ruleset>
+          </rulesets>
+<!--           CPD configuration, for small examples. -->
+          <minimumTokens>10</minimumTokens>
+        </configuration>
+      </plugin>
+ 	  <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-changelog-plugin</artifactId>
+        <version>2.1</version>
+        <configuration>
+          <type>date</type>
+          <dates>
+            <date implementation="java.lang.String">2009-04-01</date>
+          </dates>
+          <dateFormat>yyyy-MM-dd</dateFormat>
+        </configuration>
+      </plugin>
+		<plugin>
+           <groupId>net.sf</groupId>
+           <artifactId>stat-scm</artifactId>
+           <version>1.2.0</version>
+        </plugin>
+    </plugins>
+  </reporting>
 </project>
