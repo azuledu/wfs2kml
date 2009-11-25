@@ -7,13 +7,13 @@
   	<display-name>Archetype Created Web Application</display-name>
   	<servlet>
   		<description></description>
-  		<display-name>WFS_KML_gw_Servlet</display-name>
-  		<servlet-name>WFS_KML_gw_Servlet</servlet-name>
-  		<servlet-class>es.uva.pfc.eduardoRiesco.WFS_KML_gw_Servlet</servlet-class>
+  		<display-name>wfs2kml</display-name>
+  		<servlet-name>wfs2kml</servlet-name>
+  		<servlet-class>es.uva.idelab.wfs2kml</servlet-class>
   	</servlet>
   	<servlet-mapping>
-  		<servlet-name>WFS_KML_gw_Servlet</servlet-name>
-  		<url-pattern>/WFS_KML_gw_Servlet</url-pattern>
+  		<servlet-name>wfs2kml</servlet-name>
+  		<url-pattern>/wfs2kml</url-pattern>
   	</servlet-mapping>
 	
 	<welcome-file-list>
