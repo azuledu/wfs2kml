@@ -9,7 +9,7 @@
   		<description></description>
   		<display-name>wfs2kml</display-name>
   		<servlet-name>wfs2kml</servlet-name>
-  		<servlet-class>es.uva.idelab.wfs2kml</servlet-class>
+  		<servlet-class>es.uva.idelab.WFS_KML_gw_Servlet</servlet-class>
   	</servlet>
   	<servlet-mapping>
   		<servlet-name>wfs2kml</servlet-name>
