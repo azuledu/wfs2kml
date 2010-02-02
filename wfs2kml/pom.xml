@@ -6,9 +6,9 @@
   <groupId>es.uva.idelab</groupId>
   <artifactId>wfs2kml</artifactId>
   <packaging>pom</packaging>
-  <version>1.0</version>
   
   <name>WFS-KML Gateway</name>
+  <version>0.1</version>
   <description>Gateway to transform WFS requests in KML responses with special emphasis in 3D representation of features</description>
   <url>http://mvn.idelab.uva.es/wfs2kml</url>
   <inceptionYear>2009</inceptionYear>
@@ -58,7 +58,7 @@
   </organization>
   <issueManagement>
   	<system>Trac</system>
-  	<url>http://dev.idelab.uva.es/wfs2kml</url>
+  	<url>http://dev.idelab.uva.es/wfs2kml/query</url>
   </issueManagement>
   
   <developers>

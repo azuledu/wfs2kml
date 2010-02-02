@@ -2,12 +2,12 @@
   <parent>
     <artifactId>wfs2kml</artifactId>
     <groupId>es.uva.idelab</groupId>
-    <version>1.0</version>
+    <version>0.1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>es.uva.idelab</groupId>
   <artifactId>wfs2kml_lib</artifactId>
   <name>WFS-KML Library</name>
-  <version>1.0</version>
+  <version>0.1</version>
   <description>Gateway to transform WFS requests in KML responses with special emphasis in 3D representation of features</description>
 </project>
