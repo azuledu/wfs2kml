@@ -6,14 +6,14 @@
   <parent>  
     <groupId>es.uva.idelab</groupId>
     <artifactId>wfs2kml</artifactId>
-    <version>0.1</version>
+    <version>0.2-SNAPSHOT</version>
   </parent>
   <groupId>es.uva.idelab</groupId>
 
   <artifactId>wfs2kml_servlet</artifactId>
   <packaging>war</packaging>
   <name>WFS-KML Servlet</name>
-  <version>0.1</version>
+  <version>0.2-SNAPSHOT</version>
   <description>Gateway to transform WFS requests in KML responses with special emphasis in 3D representation of features</description>
 
   <dependencies>

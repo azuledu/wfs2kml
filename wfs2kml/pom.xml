@@ -8,7 +8,7 @@
   <packaging>pom</packaging>
   
   <name>WFS-KML Gateway</name>
-  <version>0.1</version>
+  <version>0.2-SNAPSHOT</version>
   <description>Gateway to transform WFS requests in KML responses with special emphasis in 3D representation of features</description>
   <url>http://mvn.idelab.uva.es/wfs2kml</url>
   <inceptionYear>2009</inceptionYear>
