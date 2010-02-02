@@ -16,14 +16,15 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 import org.geotools.data.Query;
-import org.geotools.feature.Feature;
 import org.geotools.feature.FeatureCollection;
-import org.geotools.feature.FeatureType;
 import org.geotools.geometry.jts.JTS;
 import org.geotools.geometry.jts.ReferencedEnvelope;
 import org.geotools.referencing.CRS;
 import org.opengis.referencing.crs.CoordinateReferenceSystem;
 import org.opengis.referencing.operation.MathTransform;
+
+import org.opengis.feature.simple.SimpleFeature;
+import org.opengis.feature.simple.SimpleFeatureType;
 
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.Envelope;
@@ -33,7 +34,7 @@ import com.vividsolutions.jts.geom.Geometry;
  * Servlet implementation.
  *
  */
- public class WFS_KML_gw_Servlet extends HttpServlet {
+ public class WFS2KMLServlet extends HttpServlet {
    static final long serialVersionUID = 1L;
    
 	private PrintWriter kmlout;
@@ -85,14 +86,14 @@ import com.vividsolutions.jts.geom.Geometry;
 			WFSClient wfs = new WFSClient();
 			wfs.getCapabilities( server ); 								// Connection
 			// TODO No hay que elegir el layer, solo el Bbox y aparecen todos los layer con datos en ese Bbox.
-			// Quiz� sea bueno que no se recuperen los datos, solo el nombre del layer y que los datos se 
+			// Quiza sea bueno que no se recuperen los datos, solo el nombre del layer y que los datos se 
 			// recuperen cuando se seleccione la carpeta que representa ese layer en GEarth. 
-			// Si no se especifica layer se recuperan todos. Si se especifica, s�lo ese layer.
+			// Si no se especifica layer se recuperan todos. Si se especifica, solo ese layer.
 			// ACT Un solo layer para que se pueda elegir el height attribute de ese layer
 			typeName = layer; 
-			FeatureType schema = wfs.describeFeatureType( typeName ); 	// Feature
+			SimpleFeatureType schema = wfs.describeFeatureType( typeName ); 	// Feature
 			
-			// Query   //TODO El CRS de KML no es s�lo 4326.Hay que especificar m�s.
+			// Query   //TODO El CRS de KML no es solo 4326.Hay que especificar mas.
 			CoordinateReferenceSystem kmlCRS = CRS.decode("EPSG:4326"); 
 			ReferencedEnvelope bbox = new ReferencedEnvelope( xMin, xMax, yMin, yMax, kmlCRS );			
 			
@@ -110,9 +111,9 @@ import com.vividsolutions.jts.geom.Geometry;
 			Query featuresIntersectsBbox = query.queryIntersects(typeName);
 			
 			
-			//De momento s�lo devuelve una coleccion de features de un �nico FeatureType
-			//habr�a que pasarle como argumento featureType[] -> NO, UN UNICO FEATURE PARA ELEGIR EL HEIGHT ATTRIBUTE
-			//(�y query[]? �o en main?)			
+			//De momento solo devuelve una coleccion de features de un unico FeatureType
+			//habria que pasarle como argumento featureType[] -> NO, UN UNICO FEATURE PARA ELEGIR EL HEIGHT ATTRIBUTE
+			//(�y query[]? no en main?)			
 			FeatureCollection featureCollection = wfs.getFeature( typeName , featuresIntersectsBbox );
 			//Info.getFeature(schema);
 			
@@ -173,7 +174,7 @@ import com.vividsolutions.jts.geom.Geometry;
 		}
 		
 		/**
-		 * Define the style asociated to the features
+		 * Define the style associated to the features
 		 */
 		private void kmlStyle() {
 			kmlout.write("\n<Style id=\"default\">\n");
@@ -213,7 +214,7 @@ import com.vividsolutions.jts.geom.Geometry;
 			Iterator iterator = featureCollection.iterator();			// Feature
 	        try {
 	            for( int f=0; iterator.hasNext(); f++) {
-	                Feature feature = (Feature) iterator.next();
+	                SimpleFeature feature = (SimpleFeature) iterator.next();
 					kmlout.write("\n<Placemark>\n");  						
 					kmlout.write("<name>"+feature.getID() +"</name>\n");
 					kmlout.write("<styleUrl>default</styleUrl>\n");
@@ -231,7 +232,7 @@ import com.vividsolutions.jts.geom.Geometry;
 		/**
 		 * @param feature	Feature to extract their geometries
 		 */
-		private void kmlGeometries(Feature feature, CoordinateReferenceSystem geomCRS) {
+		private void kmlGeometries(SimpleFeature feature, CoordinateReferenceSystem geomCRS) {
 			
 			boolean multiGeometry = false;
 			double zCoord;
@@ -277,7 +278,7 @@ import com.vividsolutions.jts.geom.Geometry;
 				Coordinate coord[] = kmlGeometry.getCoordinates();
 				
 				if (zAttribute != null) { //.length() != 0 ) {	// If the user has selected the height attribute
-					FeatureType featureType = feature.getFeatureType();
+					SimpleFeatureType featureType = feature.getFeatureType();
 					
 					int attrPos = featureType.find(zAttribute);	
 					if (attrPos == -1) {			// If the attribute doesn't exist

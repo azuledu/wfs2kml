@@ -6,12 +6,12 @@ import java.io.PrintWriter;
 import java.util.Iterator;
 import java.io.IOException;
 
-import org.geotools.feature.Feature;
-import org.geotools.feature.FeatureType;
 import org.geotools.feature.FeatureCollection;
 import org.geotools.referencing.CRS;
 import org.geotools.geometry.jts.JTS;
 
+import org.opengis.feature.simple.SimpleFeature;
+import org.opengis.feature.simple.SimpleFeatureType;
 import org.opengis.referencing.crs.CoordinateReferenceSystem;
 import org.opengis.referencing.operation.MathTransform;
 
@@ -137,7 +137,7 @@ public class KMLFileWriter {
 		Iterator iterator = featureCollection.iterator();			// Feature
         try {
             for( int f=0; iterator.hasNext(); f++) {
-                Feature feature = (Feature) iterator.next();
+            	SimpleFeature feature = (SimpleFeature) iterator.next();
 				kmlout.write("\n<Placemark>\n");  						
 				kmlout.write("<name>"+feature.getID() +"</name>\n");
 				kmlout.write("<styleUrl>default</styleUrl>\n");
@@ -155,7 +155,7 @@ public class KMLFileWriter {
 	/**
 	 * @param feature	Feature to extract their geometries
 	 */
-	private void kmlGeometries(Feature feature, CoordinateReferenceSystem geomCRS) {	
+	private void kmlGeometries(SimpleFeature feature, CoordinateReferenceSystem geomCRS) {	
 		boolean multiGeometry = false;
 		double zCoord;
 		CoordinateReferenceSystem kmlCRS;
@@ -199,7 +199,7 @@ public class KMLFileWriter {
 			Coordinate coord[] = kmlGeometry.getCoordinates();
 			
 			if (zAttribute.length() > 0 ) {	// If the user has selected the height attribute
-				FeatureType featureType = feature.getFeatureType();
+				SimpleFeatureType featureType = feature.getFeatureType();
 				
 				int attrPos = featureType.find(zAttribute);	
 				if (attrPos == -1) {			// If the attribute doesn't exist

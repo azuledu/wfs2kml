@@ -5,10 +5,11 @@ import java.util.logging.Logger;
 
 import org.geotools.data.Query;
 import org.geotools.feature.FeatureCollection;
-import org.geotools.feature.FeatureType;
 import org.geotools.geometry.jts.ReferencedEnvelope; 
 import org.geotools.referencing.CRS;
 
+import org.opengis.feature.simple.SimpleFeature;
+import org.opengis.feature.simple.SimpleFeatureType;
 import org.opengis.referencing.crs.CoordinateReferenceSystem;
 
 import es.uva.idelab.WFSClient;
@@ -21,7 +22,7 @@ import es.uva.idelab.CreateQuery;
  * @author Eduardo Riesco
  *
  */
-public class WFS_KML_gw_CLI {
+public class WFS2KML_CLI {
 
 	static String server;
 	static String layer;
@@ -44,7 +45,7 @@ public class WFS_KML_gw_CLI {
 			zAttribute = args[6];
 			break;
 		default:
-			System.out.println("Usage: java es.uva.pfc.eduardoRiesco.WFS_KML_gw_CLA server namespace:layer xMin xMax yMin yMax [attribute] [scale] [KML_File_Name]");
+			System.out.println("Usage: java es.uva.idelab.WFS2KML_CLI server namespace:layer xMin xMax yMin yMax [attribute] [scale] [KML_File_Name]");
 			System.exit(0);
 		}
 		
@@ -66,7 +67,7 @@ public class WFS_KML_gw_CLI {
 			// recuperen cuando se seleccione la carpeta que representa ese layer en GEarth. 
 			// ACTUALIZACION Un solo layer para que se pueda elegir el height attribute de ese layer
 			String typeName = layer; 
-			FeatureType schema = wfs.describeFeatureType( typeName ); 	// Feature
+			SimpleFeatureType schema = wfs.describeFeatureType( typeName ); 	// Feature
 			
 			// Query
 			CoordinateReferenceSystem kmlCRS = CRS.decode("EPSG:4326");
@@ -76,7 +77,7 @@ public class WFS_KML_gw_CLI {
 			CoordinateReferenceSystem geomCRS = schema.getDefaultGeometry().getCoordinateSystem(); 
 			
 			CreateQuery query;
-			if (!kmlCRS.equals(geomCRS)) { 	// Transform data CRS into KML standart CRS (4326) 
+			if (!kmlCRS.equals(geomCRS)) { 	// Transform data CRS into KML standard CRS (4326) 
 				ReferencedEnvelope geomBbox = bbox.transform( geomCRS, true, 10 ); // Sample 10 points around the envelope
 				query = new CreateQuery(geomName, geomBbox);
 			} else {

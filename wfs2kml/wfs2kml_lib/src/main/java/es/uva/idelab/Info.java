@@ -1,12 +1,14 @@
 package es.uva.idelab;
 
 import java.util.Iterator;
+import java.util.List;
 
-import org.geotools.feature.Feature;
-import org.geotools.feature.FeatureType;
-import org.geotools.feature.AttributeType;
-import org.geotools.feature.GeometryAttributeType;
 import org.geotools.feature.FeatureCollection;
+
+import org.opengis.feature.type.GeometryType;
+import org.opengis.feature.type.AttributeType;
+import org.opengis.feature.simple.SimpleFeature;
+import org.opengis.feature.simple.SimpleFeatureType;
 
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.Geometry;
@@ -41,10 +43,10 @@ public class Info {
 	    Iterator iterator = featureCollection.iterator();
 	    try {
 	        for( int count=0; iterator.hasNext(); count++) {
-	            Feature feature = (Feature) iterator.next();
+	        	SimpleFeature feature = (SimpleFeature) iterator.next();
 	            System.out.print("ID:"+feature.getID() + "\t");
 	
-	            for (int i = 0; i < feature.getNumberOfAttributes(); i++) {
+	            for (int i = 0; i < feature.getAttributeCount(); i++) {
 	                Object attribute = feature.getAttribute(i);
 	
 	                if (!(attribute instanceof Geometry)) {
@@ -63,16 +65,16 @@ public class Info {
 	/**
 	 * Print out Feature
 	 * 
-	 * @param schema
+	 * @param schemaorg.opengis.feature.type 
 	 */
-	public static void getFeature(FeatureType schema) {
+	public static void getFeature(SimpleFeatureType schema) {
 		System.out.println( "\nFeature (Schema):\n" );		
 		System.out.println( "Schema TypeName:"+schema.getTypeName() );
 		System.out.println( "Schema Attributes:"+schema.getAttributeCount()+"\n" );
 		System.out.println( "Attributes:\n" );
-		AttributeType attributes[] = schema.getAttributeTypes();
-		for(int i=0;i<attributes.length;i++)
-			System.out.println( attributes[i] );
+		List attributes = schema.getTypes();
+		for(int i=0;attributes.listIterator().hasNext();i++)
+			System.out.println( attributes.get(i) );
 	}
 	
     /**
@@ -80,13 +82,13 @@ public class Info {
      * 
      * @param schema
      */
-    public static void getAttributes(FeatureType schema) {
+    public static void getAttributes(SimpleFeatureType schema) {
         System.out.println("\nNon geometry attributes:");
     	for (int i = 0; i < schema.getAttributeCount(); i++) {
-	        AttributeType attributeType = schema.getAttributeType(i);
+	        AttributeType attributeType = schema.getType(i);
 	
-        if ( !(attributeType instanceof GeometryAttributeType)) {
-            System.out.print(attributeType.getLocalName() + "\n");
+        if ( !(attributeType instanceof GeometryType)) {
+            System.out.print(attributeType.getName() + "\n");
         }
 	    }
     }
@@ -96,12 +98,12 @@ public class Info {
      * 
      * @param schema
      */
-    public static void getGeometryAttributes(FeatureType schema) {
+    public static void getGeometryAttributes(SimpleFeatureType schema) {
         System.out.println("\nGeometry attributes:");    
     	for (int i = 0; i < schema.getAttributeCount(); i++) {
-	        AttributeType at = schema.getAttributeType(i);
-	        if ( at instanceof GeometryAttributeType) {
-	        	System.out.print(at.getLocalName() + "\t");
+	        AttributeType at = schema.getType(i);
+	        if ( at instanceof GeometryType) {
+	        	System.out.print(at.getName() + "\t");
 	        }
     	}
     }
@@ -115,7 +117,7 @@ public class Info {
 		Iterator iterator = featureCollection.iterator();
 	    try {
 	        for( int count=0; iterator.hasNext(); count++) {
-	            Feature feature = (Feature) iterator.next();
+	        	SimpleFeature feature = (SimpleFeature) iterator.next();
 	            System.out.print("\n\n\n" + feature.getID() + "\t");
 	            //System.out.println(feature.getPrimaryGeometry() + "\t");
 	            System.out.println(feature.getDefaultGeometry().getNumGeometries() + "\n");
