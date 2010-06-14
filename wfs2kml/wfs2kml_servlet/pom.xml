@@ -28,7 +28,7 @@
     <dependency>
       <groupId>es.uva.idelab</groupId>
       <artifactId>wfs2kml_lib</artifactId>
-      <version>1.0</version>
+      <version>0.2-SNAPSHOT</version>
     </dependency>
 <!--
     <dependency>

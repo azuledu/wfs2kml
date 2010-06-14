@@ -163,11 +163,12 @@ public class KMLFileWriter {
 		try {
 			
 		kmlCRS = CRS.decode("EPSG:4326");
-		if (feature.getDefaultGeometry().getNumGeometries()>1){	
+		Geometry defaultGeometry=(Geometry)feature.getDefaultGeometry();
+		if (defaultGeometry.getNumGeometries()>1){	
 			kmlout.write("<MultiGeometry>\n");
 			multiGeometry = true;
 		}
-		for(int g=0; g<feature.getDefaultGeometry().getNumGeometries(); g++){  // Geometry
+		for(int g=0; g<defaultGeometry.getNumGeometries(); g++){  // Geometry
 			kmlout.write("<Polygon>\n");					// 	TODO geometrias diferentes de "poligon" 
 			kmlout.write("<extrude>1</extrude>\n");
 			//kmlout.write("<tessellate>1</tessellate>\n");  	TODO Activar para poligonos grandes.
@@ -191,7 +192,7 @@ public class KMLFileWriter {
 //			findBestGeometryType(Geometry geom)
 //	          Determine the best ShapeType for a given Geometry.
 			
-			Geometry geomGeometry = feature.getDefaultGeometry().getGeometryN(g);
+			Geometry geomGeometry = defaultGeometry.getGeometryN(g);
 			
 			MathTransform transform = CRS.findMathTransform(geomCRS, kmlCRS);
 			Geometry kmlGeometry = JTS.transform( geomGeometry, transform);
@@ -201,7 +202,7 @@ public class KMLFileWriter {
 			if (zAttribute.length() > 0 ) {	// If the user has selected the height attribute
 				SimpleFeatureType featureType = feature.getFeatureType();
 				
-				int attrPos = featureType.find(zAttribute);	
+				int attrPos = featureType.indexOf(zAttribute);	
 				if (attrPos == -1) {			// If the attribute doesn't exist
 					zCoord = 0;
 				}

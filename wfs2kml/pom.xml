@@ -20,7 +20,7 @@
   </modules>
   
   <properties>
-    <geotools.version>2.4.5</geotools.version>
+    <geotools.version>2.6.4</geotools.version>
   </properties>
   
   <build>
@@ -128,6 +128,14 @@
     		<enabled>false</enabled>
     	</snapshots>
     </repository>
+    <repository>
+    	<releases>
+    		<enabled>false</enabled>
+    	</releases>
+    	<id>osgeo-snapshots</id>
+    	<name>osgeo Snapshots</name>
+    	<url>http://repo.osgeo.org/</url>
+    </repository>
   </repositories>
   
   <dependencies>
@@ -139,27 +147,27 @@
     </dependency>
     <dependency>
       <groupId>org.geotools</groupId>
-      <artifactId>gt2-main</artifactId>
+      <artifactId>gt-main</artifactId>
       <version>${geotools.version}</version>
     </dependency>
     <dependency>
       <groupId>org.geotools</groupId>
-      <artifactId>gt2-wfs</artifactId>
+      <artifactId>gt-wfs</artifactId>
       <version>${geotools.version}</version>
     </dependency>
     <dependency>
       <groupId>org.geotools</groupId>
-      <artifactId>gt2-epsg-wkt</artifactId>
+      <artifactId>gt-epsg-wkt</artifactId>
       <version>${geotools.version}</version>
     </dependency>
     <dependency>
       <groupId>org.geotools</groupId>
-      <artifactId>gt2-epsg-hsql</artifactId>
+      <artifactId>gt-epsg-hsql</artifactId>
       <version>${geotools.version}</version>
     </dependency>
     <dependency>
       <groupId>org.geotools</groupId>
-      <artifactId>gt2-epsg-extension</artifactId>
+      <artifactId>gt-epsg-extension</artifactId>
       <version>${geotools.version}</version>
     </dependency>
 

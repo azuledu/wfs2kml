@@ -120,9 +120,10 @@ public class Info {
 	        	SimpleFeature feature = (SimpleFeature) iterator.next();
 	            System.out.print("\n\n\n" + feature.getID() + "\t");
 	            //System.out.println(feature.getPrimaryGeometry() + "\t");
-	            System.out.println(feature.getDefaultGeometry().getNumGeometries() + "\n");
-	            for(int i=0; i<feature.getDefaultGeometry().getNumGeometries(); i++){
-	            	Coordinate coord[] = feature.getDefaultGeometry().getGeometryN(i).getCoordinates();
+				Geometry defaultGeometry=(Geometry)feature.getDefaultGeometry();
+	            System.out.println(defaultGeometry.getNumGeometries() + "\n");
+	            for(int i=0; i<defaultGeometry.getNumGeometries(); i++){
+	            	Coordinate coord[] = defaultGeometry.getGeometryN(i).getCoordinates();
 	            	for(int j=0;j<coord.length;j++){
 	            		System.out.print( coord[j].x + "," + coord[j].y + " " );
 	            	}

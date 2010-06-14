@@ -97,8 +97,8 @@ import com.vividsolutions.jts.geom.Geometry;
 			CoordinateReferenceSystem kmlCRS = CRS.decode("EPSG:4326"); 
 			ReferencedEnvelope bbox = new ReferencedEnvelope( xMin, xMax, yMin, yMax, kmlCRS );			
 			
-			String geomName = schema.getDefaultGeometry().getLocalName();
-			CoordinateReferenceSystem geomCRS = schema.getDefaultGeometry().getCoordinateSystem(); 
+			String geomName = schema.getGeometryDescriptor().getLocalName();
+			CoordinateReferenceSystem geomCRS = schema.getCoordinateReferenceSystem(); 
 			
 			CreateQuery query;
 			if (!kmlCRS.equals(geomCRS)) {
@@ -241,12 +241,12 @@ import com.vividsolutions.jts.geom.Geometry;
 			try {
 				
 			kmlCRS = CRS.decode("EPSG:4326");
-			
-			if (feature.getDefaultGeometry().getNumGeometries()>1){	
+			Geometry defaultGeometry=(Geometry)feature.getDefaultGeometry();
+			if (defaultGeometry.getNumGeometries()>1){	
 				kmlout.write("<MultiGeometry>\n");
 				multiGeometry = true;
 			}
-			for(int g=0; g<feature.getDefaultGeometry().getNumGeometries(); g++){  // Geometry
+			for(int g=0; g<defaultGeometry.getNumGeometries(); g++){  // Geometry
 				kmlout.write("<Polygon>\n");					// 	TODO geometrias diferentes de "poligon" 
 				kmlout.write("<extrude>1</extrude>\n");
 				//kmlout.write("<tessellate>1</tessellate>\n");  	TODO Activar para poligonos grandes.
@@ -264,13 +264,13 @@ import com.vividsolutions.jts.geom.Geometry;
 				// guessCoorinateDims(Coordinate[] cs)
 //		          Returns:
 //		        	  2 for 2d (default)
-//		        	  4 for 3d - one of the oordinates has a non-NaN z value
+//		        	  4 for 3d - one of the coordinates has a non-NaN z value
 //		        	  (3 is for x,y,m but thats not supported yet) 
 				
 //				findBestGeometryType(Geometry geom)
 //		          Determine the best ShapeType for a given Geometry.
 				
-				Geometry geomGeometry = feature.getDefaultGeometry().getGeometryN(g);
+				Geometry geomGeometry = defaultGeometry.getGeometryN(g);
 				
 				MathTransform transform = CRS.findMathTransform(geomCRS, kmlCRS);
 				Geometry kmlGeometry = JTS.transform( geomGeometry, transform);
@@ -280,7 +280,7 @@ import com.vividsolutions.jts.geom.Geometry;
 				if (zAttribute != null) { //.length() != 0 ) {	// If the user has selected the height attribute
 					SimpleFeatureType featureType = feature.getFeatureType();
 					
-					int attrPos = featureType.find(zAttribute);	
+					int attrPos = featureType.indexOf(zAttribute);	
 					if (attrPos == -1) {			// If the attribute doesn't exist
 						zCoord = 0;
 					} else {						// If the attribute exist

@@ -10,7 +10,11 @@ import org.geotools.referencing.CRS;
 
 import org.opengis.feature.simple.SimpleFeature;
 import org.opengis.feature.simple.SimpleFeatureType;
+//import org.opengis.feature.type.FeatureType;
+
 import org.opengis.referencing.crs.CoordinateReferenceSystem;
+
+import com.vividsolutions.jts.geom.Geometry;
 
 import es.uva.idelab.WFSClient;
 import es.uva.idelab.CreateQuery;
@@ -73,8 +77,9 @@ public class WFS2KML_CLI {
 			CoordinateReferenceSystem kmlCRS = CRS.decode("EPSG:4326");
 			ReferencedEnvelope bbox = new ReferencedEnvelope( xMin, xMax, yMin, yMax, kmlCRS );			
 			
-			String geomName = schema.getDefaultGeometry().getLocalName();
-			CoordinateReferenceSystem geomCRS = schema.getDefaultGeometry().getCoordinateSystem(); 
+			String geomName = schema.getGeometryDescriptor().getLocalName();
+            //Geometry geom = (Geometry) schema.getDefaultGeometry();
+			CoordinateReferenceSystem geomCRS = schema.getCoordinateReferenceSystem(); 
 			
 			CreateQuery query;
 			if (!kmlCRS.equals(geomCRS)) { 	// Transform data CRS into KML standard CRS (4326) 
