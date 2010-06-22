@@ -5,19 +5,13 @@
   
   <groupId>es.uva.idelab</groupId>
   <artifactId>wfs2kml</artifactId>
-  <packaging>pom</packaging>
+  <packaging>war</packaging>
   
   <name>WFS-KML Gateway</name>
   <version>0.2-SNAPSHOT</version>
   <description>Gateway to transform WFS requests in KML responses with special emphasis in 3D representation of features</description>
   <url>http://mvn.idelab.uva.es/wfs2kml</url>
   <inceptionYear>2009</inceptionYear>
-  
-  <modules>
-    <module>wfs2kml_lib</module>
-    <module>wfs2kml_cli</module>
-    <module>wfs2kml_servlet</module>
-  </modules>
   
   <properties>
     <geotools.version>2.6.4</geotools.version>
@@ -47,8 +41,8 @@
     
   </build>
   <scm>
-  	<connection>scm:svn:http://itastdevserver.tel.uva.es/svn/wfs2kml/trunk/wfs2kml</connection>
-  	<developerConnection>scm:svn:http://itastdevserver.tel.uva.es/svn/wfs2kml/trunk/wfs2kml</developerConnection>
+  	<connection>scm:svn:http://svn.idelab.uva.es/wfs2kml/trunk/wfs2kml</connection>
+  	<developerConnection>scm:svn:http://svn.idelab.uva.es/wfs2kml/trunk/wfs2kml</developerConnection>
   	<url>http://dev.idelab.uva.es/wfs2kml/browser/trunk/wfs2kml</url>
   </scm>
 
