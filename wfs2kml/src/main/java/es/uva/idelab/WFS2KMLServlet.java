@@ -1,11 +1,15 @@
 package es.uva.idelab;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.List;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -25,6 +29,7 @@ import org.opengis.referencing.operation.MathTransform;
 
 import org.opengis.feature.simple.SimpleFeature;
 import org.opengis.feature.simple.SimpleFeatureType;
+import org.opengis.feature.type.AttributeType;
 
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.Envelope;
@@ -35,8 +40,10 @@ import com.vividsolutions.jts.geom.Geometry;
  *
  */
  public class WFS2KMLServlet extends HttpServlet {
-   static final long serialVersionUID = 1L;
-   
+	 
+	 private static final Log logger = LogFactory.getLog(WFS2KMLServlet.class);
+
+	 static final long serialVersionUID = 1L;
 	private PrintWriter kmlout;
 	private double xMin;
 	private double xMax;
@@ -72,6 +79,7 @@ import com.vividsolutions.jts.geom.Geometry;
 			xMax = Double.valueOf( bboxParams[2] ).doubleValue();
 			yMin = Double.valueOf( bboxParams[1] ).doubleValue();
 			yMax = Double.valueOf( bboxParams[3] ).doubleValue();
+			if (logger.isDebugEnabled()) logger.debug( "BoundingBox: xMin="+xMin+", xMax="+xMax+", yMin="+yMin+", yMax="+yMax);
 		} else {
 			response.sendRedirect("index.jsp"); 
 		}
@@ -80,7 +88,8 @@ import com.vividsolutions.jts.geom.Geometry;
 		if(map.containsKey("server")) server = ((String[])map.get("server"))[0];
 		if(map.containsKey("zAttribute")) zAttribute = ((String[])map.get("zAttribute"))[0];
 		if(map.containsKey("scale")) scale= Double.valueOf( ((String[])map.get("scale"))[0] ).doubleValue();
-		
+		if (logger.isDebugEnabled()) logger.debug( "server="+server+", layer="+layer+", zAttribute="+zAttribute+", scale="+scale);
+
 		try {
 			supressInfo();
 			WFSClient wfs = new WFSClient();
@@ -115,9 +124,15 @@ import com.vividsolutions.jts.geom.Geometry;
 			//habria que pasarle como argumento featureType[] -> NO, UN UNICO FEATURE PARA ELEGIR EL HEIGHT ATTRIBUTE
 			//(�y query[]? no en main?)			
 			FeatureCollection featureCollection = wfs.getFeature( typeName , featuresIntersectsBbox );
-			//Info.getFeature(schema);
-			
-			
+			if (logger.isDebugEnabled()){
+				logger.debug( "Feature (Schema):" );		
+				logger.debug( "Schema TypeName:"+schema.getTypeName() );
+				logger.debug( "Schema Attributes:"+schema.getAttributeCount() );
+				logger.debug( "Attributes:" );
+				List<AttributeType> attributes = schema.getTypes();   
+				for(int i=0;i<schema.getAttributeCount();i++)
+					logger.debug( i+" "+attributes.get(i) );
+			}
 //			FileWriter fw = new FileWriter(kmlFileName);
 //			BufferedWriter bw = new BufferedWriter(fw);
 //			kmlout = new PrintWriter (bw);
@@ -213,8 +228,10 @@ import com.vividsolutions.jts.geom.Geometry;
 		private void kmlPlacemarks(FeatureCollection featureCollection, CoordinateReferenceSystem geomCRS) {
 			Iterator iterator = featureCollection.iterator();			// Feature
 	        try {
-	            for( int f=0; iterator.hasNext(); f++) {
-	                SimpleFeature feature = (SimpleFeature) iterator.next();
+//	            for( int f=0; iterator.hasNext(); f++) {
+//	                SimpleFeature feature = (SimpleFeature) iterator.next();
+                while( iterator.hasNext()){
+                	SimpleFeature feature = (SimpleFeature) iterator.next();
 					kmlout.write("\n<Placemark>\n");  						
 					kmlout.write("<name>"+feature.getID() +"</name>\n");
 					kmlout.write("<styleUrl>default</styleUrl>\n");

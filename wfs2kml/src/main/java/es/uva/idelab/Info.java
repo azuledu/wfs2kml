@@ -72,9 +72,11 @@ public class Info {
 		System.out.println( "Schema TypeName:"+schema.getTypeName() );
 		System.out.println( "Schema Attributes:"+schema.getAttributeCount()+"\n" );
 		System.out.println( "Attributes:\n" );
-		List attributes = schema.getTypes();
-		for(int i=0;attributes.listIterator().hasNext();i++)
-			System.out.println( attributes.get(i) );
+		List<AttributeType> attributes = schema.getTypes();   
+		for(int i=0;i<schema.getAttributeCount();i++)
+			System.out.println( i+" "+attributes.get(i) ); 
+		//while (attributes.listIterator().hasNext()) {
+		//      System.out.print(attributes.listIterator().next()+"\n");}
 	}
 	
     /**
