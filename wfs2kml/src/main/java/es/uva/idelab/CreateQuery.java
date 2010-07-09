@@ -3,14 +3,14 @@ package es.uva.idelab;
 import org.geotools.data.DefaultQuery;
 import org.geotools.data.Query;
 import org.geotools.factory.CommonFactoryFinder;
-import org.geotools.factory.GeoTools;
-import org.geotools.geometry.jts.JTS;
+//import org.geotools.factory.GeoTools;
+//import org.geotools.geometry.jts.JTS;
 import org.opengis.filter.Filter;
 import org.opengis.filter.FilterFactory2;
-import org.opengis.filter.spatial.Intersects;
+//import org.opengis.filter.spatial.Intersects;
 import org.opengis.geometry.BoundingBox;
 
-import com.vividsolutions.jts.geom.Envelope;
+//import com.vividsolutions.jts.geom.Envelope;
 
 /**
  * Creates a query with the input parameters.

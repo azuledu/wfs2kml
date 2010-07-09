@@ -13,17 +13,17 @@
       	<div id="content">
 	        <form action="wfs2kml" method="get">
 	        <fieldset><legend>Server</legend><br/>
-	        GetCapabilities URL: <input type="text" name="server" size="87" VALUE="http://localhost:8080/geoserver/wfs?service=WFS&request=GetCapabilities" /><br/><br/>
-			Bounding Box: <input type="text" name="bbox" size="25" VALUE="-90,-180,90,180" /><br/>	<br/>
-<!--  			xmin <input type="text" name="xmin" size="5" VALUE="-180">
+	        * GetCapabilities URL: <input type="text" name="server" size="87" VALUE="http://localhost:8080/geoserver/wfs?service=WFS&request=GetCapabilities" /><br/><br/>
+			* Layer: <input type="text" name="layer" size="50" VALUE="topp:states" /><br/><br/>
+			Bounding Box: <input type="text" name="bbox" size="25"  VALUE="-90,-180,90,180"/><br/>	<br/>
+<!--  			xmin <input type="text" name="xmin" size="5" VALUE="-180">    VALUE="-90,-180,90,180"
 			xmax <input type="text" name="xmax" size="5" VALUE="180">
 			ymin <input type="text" name="ymin" size="5" VALUE="-90">
 			ymax <input type="text" name="ymax" size="5" VALUE="90"></p>	-->
-			Layer: <input type="text" name="layer" size="50" VALUE="topp:states" /><br/><br/>
 				
 			</fieldset><br/>
 			<fieldset><legend>3D Style</legend><br/>
-					zAttribute: <input type="text" name="zAttribute" size="20" VALUE="population" /><br/><br/>
+					zAttribute: <input type="text" name="zAttribute" size="20" VALUE="PERSONS" /><br/><br/>
 					Scale: <input type="text" name="scale" size="10" VALUE="1" /><br/><br/>
 			</fieldset><br/>
 			<input type="submit" value="Enviar">
