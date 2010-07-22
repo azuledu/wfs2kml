@@ -1,48 +1,24 @@
 package es.uva.idelab;
 
 import java.io.PrintWriter;
-import java.util.Iterator;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import org.geotools.feature.FeatureCollection;
-import com.vividsolutions.jts.geom.Envelope;
-import org.opengis.referencing.crs.CoordinateReferenceSystem;
-
-import org.opengis.feature.simple.SimpleFeature;
-
-
-
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-//import javax.servlet.ServletException;
-import javax.servlet.*;
-import javax.servlet.http.*;
-
-import org.geotools.data.DataStoreFinder;
-import org.geotools.data.DataStore;
-import org.geotools.data.FeatureSource;
-import org.geotools.data.Query;
+import org.geotools.feature.FeatureIterator;
 import org.geotools.geometry.jts.JTS;
-import org.geotools.geometry.jts.ReferencedEnvelope;
 import org.geotools.referencing.CRS;
-import org.opengis.referencing.operation.MathTransform;
 
+import org.opengis.referencing.crs.CoordinateReferenceSystem;
+import org.opengis.feature.simple.SimpleFeature;
+import org.opengis.referencing.operation.MathTransform;
 import org.opengis.feature.simple.SimpleFeatureType;
-import org.opengis.feature.type.AttributeType;
 
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.Geometry;
-
-
+import com.vividsolutions.jts.simplify.DouglasPeuckerLineSimplifier;
+import com.vividsolutions.jts.geom.Envelope;
 
 
 public class KMLProducer {
@@ -52,17 +28,19 @@ public class KMLProducer {
 	private String typeName; 
 	private String zAttribute; 
 	private double scale;
+	private double tolerance;
 	
-	public KMLProducer ( PrintWriter kmlout, String typeName, String zAttribute, double scale) {
+	public KMLProducer ( PrintWriter kmlout, String typeName, double tolerance, String zAttribute, double scale) {
 		this.kmlout = kmlout;
 		this.typeName = typeName;
+		this.tolerance = tolerance;
 		this.zAttribute = zAttribute;
 		this.scale = scale;
 		if (logger.isDebugEnabled()) logger.debug( "KMLProducer: zAttribute="+this.zAttribute+", scale="+this.scale);
 
 	}
 	
-		public void createFile (PrintWriter kmlout, FeatureCollection featureCollection, Envelope bbox, CoordinateReferenceSystem geomCRS){  
+		public void createFile (PrintWriter kmlout, FeatureCollection<SimpleFeatureType, SimpleFeature> featureCollection, Envelope bbox, CoordinateReferenceSystem geomCRS){  
 			try{				
 				kmlout.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
 				kmlout.write("<kml xmlns=\"http://earth.google.com/kml/2.2\">\n\n");
@@ -127,8 +105,8 @@ public class KMLProducer {
 		/**
 		 * @param featureCollection	All the features to be represented
 		 */
-		private void kmlPlacemarks(FeatureCollection featureCollection, CoordinateReferenceSystem geomCRS) {
-			Iterator iterator = featureCollection.iterator();			// Feature
+		private void kmlPlacemarks(FeatureCollection<SimpleFeatureType, SimpleFeature> featureCollection, CoordinateReferenceSystem geomCRS) {
+			FeatureIterator<SimpleFeature> iterator = featureCollection.features();			// Feature
 	        try {
 //	            for( int f=0; iterator.hasNext(); f++) {
 //	                SimpleFeature feature = (SimpleFeature) iterator.next();
@@ -194,7 +172,9 @@ public class KMLProducer {
 				MathTransform transform = CRS.findMathTransform(geomCRS, kmlCRS);
 				Geometry kmlGeometry = JTS.transform( geomGeometry, transform);
 					
-				Coordinate coord[] = kmlGeometry.getCoordinates();
+				Coordinate[] coord = kmlGeometry.getCoordinates();
+				//DouglasPeuckerLineSimplifier simplifier = new DouglasPeuckerLineSimplifier(coord);
+				Coordinate[] coord_simp = DouglasPeuckerLineSimplifier.simplify(coord,tolerance);
 				
 				if (zAttribute != null) { //.length() != 0 ) {	// If the user has selected the height attribute
 					SimpleFeatureType featureType = feature.getFeatureType();
@@ -215,16 +195,16 @@ public class KMLProducer {
 							zCoord = zCoordLong.longValue();
 						}
 						
-					}		
-		        	for(int j=0;j<coord.length;j++){
-		        		kmlout.write( coord[j].x +"," + coord[j].y + "," + zCoord/scale + " "); 
+					}	
+					
+		        	for(int j=0;j<coord_simp.length;j++){
+		        		kmlout.write( coord_simp[j].x +"," + coord_simp[j].y + "," + zCoord/scale + "\n"); 
 		        	}
 		        } else {	// If the user hasn't selected the height attribute (Geometries with 3 coordinates)
-	        		for(int j=0;j<coord.length;j++){
-		        		kmlout.write( coord[j].x +"," + coord[j].y + "," + coord[j].z/scale + " "); 
+	        		for(int j=0;j<coord_simp.length;j++){
+		        		kmlout.write( coord_simp[j].x +"," + coord_simp[j].y + "," + coord_simp[j].z/scale + "\n"); 
 		        	} // TODO sustituir NaN en coord z por 0
 	        	}
-		        
 				kmlout.write("\n</coordinates>\n");
 				kmlout.write("</LinearRing>\n");
 				kmlout.write("</outerBoundaryIs>\n");

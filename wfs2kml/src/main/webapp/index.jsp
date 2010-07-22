@@ -20,11 +20,13 @@
 			xmax <input type="text" name="xmax" size="5" VALUE="180">
 			ymin <input type="text" name="ymin" size="5" VALUE="-90">
 			ymax <input type="text" name="ymax" size="5" VALUE="90"></p>	-->
-				
 			</fieldset><br/>
-			<fieldset><legend>3D Style</legend><br/>
+			<fieldset><legend>Simplification (Douglas-Peucker algorithm)</legend><br/>
+					Coordinate distance tolerance: (0 for no simplification)<input type="text" name="tolerance" size="20" VALUE="0.01" /><br/><br/>
+			</fieldset><br/>
+			<fieldset><legend>3D Style (Height=zAttribute/Scale)</legend><br/>
 					zAttribute: <input type="text" name="zAttribute" size="20" VALUE="PERSONS" /><br/><br/>
-					Scale: <input type="text" name="scale" size="10" VALUE="1" /><br/><br/>
+					Scale: <input type="text" name="scale" size="10" VALUE="100" /><br/><br/>
 			</fieldset><br/>
 			<input type="submit" value="Enviar">
 			</form>

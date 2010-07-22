@@ -4,19 +4,13 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import java.io.PrintWriter;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Iterator;
 import java.util.Map;
 
-//import javax.servlet.ServletException;
-//import javax.servlet.http.HttpServletRequest;
-//import javax.servlet.http.HttpServletResponse;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -25,19 +19,12 @@ import org.geotools.data.DataStore;
 import org.geotools.data.FeatureSource;
 import org.geotools.data.Query;
 import org.geotools.feature.FeatureCollection;
-import org.geotools.geometry.jts.JTS;
 import org.geotools.geometry.jts.ReferencedEnvelope;
 import org.geotools.referencing.CRS;
-import org.opengis.referencing.crs.CoordinateReferenceSystem;
-import org.opengis.referencing.operation.MathTransform;
 
-import org.opengis.feature.simple.SimpleFeature;
+import org.opengis.referencing.crs.CoordinateReferenceSystem;
 import org.opengis.feature.simple.SimpleFeatureType;
 import org.opengis.feature.type.AttributeType;
-
-import com.vividsolutions.jts.geom.Coordinate;
-import com.vividsolutions.jts.geom.Envelope;
-import com.vividsolutions.jts.geom.Geometry;
 
 /**
  * Servlet implementation.
@@ -45,31 +32,21 @@ import com.vividsolutions.jts.geom.Geometry;
  */
  public class WFS2KMLServlet extends HttpServlet {
 	 
-	 private static final Log logger = LogFactory.getLog(WFS2KMLServlet.class);
-		private PrintWriter kmlout;
+	private static final Log logger = LogFactory.getLog(WFS2KMLServlet.class);
+	private PrintWriter kmlout;
 
-	 static final long serialVersionUID = 1L;
 	private double xMin = -180; 
 	private double xMax = 180;
 	private double yMin = -90;
 	private double yMax = 90;
-	private String layer; // USA States
-	private String server; // ="http://localhost:8080/geoserver/wfs?service=WFS&request=GetCapabilities";
-	private String zAttribute;  // z coordinateWFSClient
-	private double scale = 1;	// heightParameter = zAttribute/scale
+	private String layer; 
+	private String server; 		// http://localhost:8080/geoserver/wfs?service=WFS&request=GetCapabilities
+	private double tolerance = 0;
+	private String zAttribute;  // z coordinate (Height Parameter)
+	private double scale = 1;	// height = zAttribute/scale
 	private String typeName;	// Feature Type Name
    
-    /* (non-Java-doc)
-	 * @see javax.servlet.http.HttpServlet#HttpServlet()
-	 */
-	//public WFS_KML_gw_Servlet() {
-	//	super();
-	//}   	
-	
-	/* (non-Java-doc)
-	 * @see javax.servlet.http.HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+   	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		response.setContentType("application/xml");
 		kmlout = response.getWriter();
@@ -103,24 +80,20 @@ import com.vividsolutions.jts.geom.Geometry;
 			if (logger.isDebugEnabled()) logger.debug( "BoundingBox: xMin="+xMin+", xMax="+xMax+", yMin="+yMin+", yMax="+yMax);
 		//}
 		
-
 		try {
 			supressInfo();
-			//WFSClient wfs = new WFSClient();
-			//wfs.getCapabilities( server ); 								// Connection
 			// TODO No hay que elegir el layer, solo el Bbox y aparecen todos los layer con datos en ese Bbox.
 			// Quiza sea bueno que no se recuperen los datos, solo el nombre del layer y que los datos se 
 			// recuperen cuando se seleccione la carpeta que representa ese layer en GEarth. 
 			// Si no se especifica layer se recuperan todos. Si se especifica, solo ese layer.
 			// ACT Un solo layer para que se pueda elegir el height attribute de ese layer
 			typeName = layer; 
-			Map wfsConnectionParameters = new HashMap();
+			Map<String, String> wfsConnectionParameters = new HashMap<String, String>();
 			wfsConnectionParameters.put("WFSDataStoreFactory:GET_CAPABILITIES_URL", server );	
 			DataStore dataStore = DataStoreFinder.getDataStore( wfsConnectionParameters );
 			if (dataStore == null) {
 				if (logger.isDebugEnabled()) logger.debug( "Could not connect - check parameters");
             }
-//			SimpleFeatureType schema = wfs.describeFeatureType( typeName ); 	// Feature
 			SimpleFeatureType schema = dataStore.getSchema( typeName );
 
 			// Query   //TODO El CRS de KML no es solo 4326.Hay que especificar mas.
@@ -160,7 +133,7 @@ import com.vividsolutions.jts.geom.Geometry;
 //			BufferedWriter bw = new BufferedWriter(fw);
 //			kmlout = new PrintWriter (bw);
 
-			KMLProducer kml = new KMLProducer (kmlout, typeName, zAttribute, scale);
+			KMLProducer kml = new KMLProducer (kmlout, typeName, tolerance, zAttribute, scale);
             kml.createFile( kmlout, features, bbox, geomCRS );
             
 		} catch (Exception e) {
@@ -175,18 +148,7 @@ import com.vividsolutions.jts.geom.Geometry;
 		Logger.getLogger("net.refractions.xml").setLevel( Level.SEVERE);
 	}
 	
-
-
-		/**
-		 * Output KML file
-		 * 
-		 * @param featureCollection	Features to be translated into a KML format
-		 * @param bbox				Space region that defines the KML viewer focus. 
-		 * 							All the features are inside of this Bounding Box
-		 */
-
-
-	}
+}
 	
 
 

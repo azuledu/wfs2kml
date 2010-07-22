@@ -9,7 +9,7 @@
   <version position="left"/>
   <bannerLeft>
     <name>IDELab</name>
-    <src>http://idelab.uva.es/sites/all/themes/stopdesign_idelab/img/world_logo.png</src>
+    <src>http://itastdevserver.tel.uva.es/img/world_logo.png</src>
     <href>http://idelab.uva.es/</href>
   </bannerLeft>
   <bannerRight>

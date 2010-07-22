@@ -7,7 +7,7 @@
      <div id="banner">
 
       <div id="header">
-        <a id="logo" href="http://idelab.uva.es/"><img src="http://idelab.uva.es/sites/all/themes/stopdesign_idelab/img/world_logo.png" alt="IDELab" height="135" /></a>
+        <a id="logo" href="http://idelab.uva.es/"><img src="img/logo.png" alt="IDELab" height="135" /></a>
       </div>
 	</div>
 
@@ -16,17 +16,19 @@
 	        <form action="wfs2kml" method="get">
 	        <fieldset><legend>Server</legend><br/>
 	        GetCapabilities URL: <input type="text" name="server" size="87" VALUE="http://www.mirame.chduero.es/duerowfd?service=WFS&request=GetCapabilities" /><br/><br/>
+			Layer: <input type="text" name="layer" size="50" VALUE="Segmentos_Embalse" /><br/><br/>
 			Bounding Box: <input type="text" name="bbox" size="25" VALUE="-90,-180,90,180" /><br/>	<br/>
 <!--  			xmin <input type="text" name="xmin" size="5" VALUE="-180">
 			xmax <input type="text" name="xmax" size="5" VALUE="180">
 			ymin <input type="text" name="ymin" size="5" VALUE="-90">
 			ymax <input type="text" name="ymax" size="5" VALUE="90"></p>	-->
-			Layer: <input type="text" name="layer" size="50" VALUE="Limites_Demarcacion" /><br/><br/>
-				
 			</fieldset><br/>
-			<fieldset><legend>3D Style</legend><br/>
-					zAttribute: <input type="text" name="zAttribute" size="20" VALUE="area" /><br/><br/>
-					Scale: <input type="text" name="scale" size="10" VALUE="1" /><br/><br/>
+			<fieldset><legend>Simplification (Douglas-Peucker algorithm)</legend><br/>
+					Coordinate distance tolerance: (0 for no simplification)<input type="text" name="tolerance" size="20" VALUE="0.01" /><br/><br/>
+			</fieldset><br/>
+			<fieldset><legend>3D Style (Height=zAttribute/Scale)</legend><br/>
+					zAttribute: <input type="text" name="zAttribute" size="20" VALUE="AREA" /><br/><br/>
+					Scale: <input type="text" name="scale" size="10" VALUE="0.01" /><br/><br/>
 			</fieldset><br/>
 			<input type="submit" value="Enviar">
 			</form>
