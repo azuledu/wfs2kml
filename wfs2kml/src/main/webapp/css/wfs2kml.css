@@ -1,3 +1,14 @@
+body {
+	margin: 0px;
+	font-family: verdana,arial,helvetica,sans-serif;
+	font-size:11px;
+	color:#333333;
+}
+
+legend {
+	font-weight:bold;
+}
+
 #header {
 	background: url(../img/wfs2kml_header.jpg) no-repeat center;
 	height: 77px;

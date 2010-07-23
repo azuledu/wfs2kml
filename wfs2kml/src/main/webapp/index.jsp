@@ -28,7 +28,7 @@
 					zAttribute: <input type="text" name="zAttribute" size="20" VALUE="PERSONS" /><br/><br/>
 					Scale: <input type="text" name="scale" size="10" VALUE="100" /><br/><br/>
 			</fieldset><br/>
-			<input type="submit" value="Enviar">
+			<input type="submit" value="Preview KML file">
 			</form>
 		</div>	
     </body>
