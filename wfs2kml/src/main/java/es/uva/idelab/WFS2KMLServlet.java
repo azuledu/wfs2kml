@@ -41,7 +41,7 @@ import org.opengis.feature.type.AttributeType;
 	private double yMax = 90;
 	private String layer; 
 	private String server; 		// http://localhost:8080/geoserver/wfs?service=WFS&request=GetCapabilities
-	private double tolerance = 0;
+	private double tolerance;
 	private String zAttribute;  // z coordinate (Height Parameter)
 	private double scale = 1;	// height = zAttribute/scale
 	private String typeName;	// Feature Type Name
@@ -78,6 +78,8 @@ import org.opengis.feature.type.AttributeType;
 			yMin = Double.valueOf( bboxParams[1] ).doubleValue();
 			yMax = Double.valueOf( bboxParams[3] ).doubleValue();
 			if (logger.isDebugEnabled()) logger.debug( "BoundingBox: xMin="+xMin+", xMax="+xMax+", yMin="+yMin+", yMax="+yMax);
+			
+			tolerance= Double.valueOf( ((String[])connectionParameters.get("tolerance"))[0] ).doubleValue();
 		//}
 		
 		try {
