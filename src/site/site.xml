@@ -9,7 +9,7 @@
   <version position="left"/>
   <bannerLeft>
     <name>IDELab</name>
-    <src>http://itastdevserver.tel.uva.es/img/world_logo.png</src>
+    <src>http://img.idelab.uva.es/world_logo.png</src>
     <href>http://idelab.uva.es/</href>
   </bannerLeft>
   <bannerRight>
@@ -27,7 +27,7 @@
     <!-- ==================================================== -->
     <!--     Menus to appears on the left side of each page   -->
     <!-- ==================================================== -->
-    <menu name="WFS-KML Gateway">
+    <menu name="${project.name}">
       <item name="Introduction" href="index.html"/>
       <item name="Features" href="features.html"/>
       <item name="Glossary" href="glossary.html"/>

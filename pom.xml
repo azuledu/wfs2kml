@@ -11,7 +11,7 @@
   <version>0.2-SNAPSHOT</version>
   <description>Gateway to transform WFS requests in KML responses with special emphasis in 3D representation of features</description>
   <url>http://mvn.idelab.uva.es/wfs2kml</url>
-  <inceptionYear>2009</inceptionYear>
+  <inceptionYear>2010</inceptionYear>
   
   <properties>
     <geotools.version>2.6.4</geotools.version>
@@ -41,9 +41,9 @@
     
   </build>
   <scm>
-  	<connection>scm:svn:http://svn.idelab.uva.es/wfs2kml/trunk/wfs2kml</connection>
-  	<developerConnection>scm:svn:http://svn.idelab.uva.es/wfs2kml/trunk/wfs2kml</developerConnection>
-  	<url>http://dev.idelab.uva.es/wfs2kml/browser/trunk/wfs2kml</url>
+  	<connection>scm:svn:http://svn.idelab.uva.es/wfs2kml/wfs2kml</connection>
+  	<developerConnection>scm:svn:http://svn.idelab.uva.es/wfs2kml/wfs2kml</developerConnection>
+  	<url>http://dev.idelab.uva.es/wfs2kml/browser/wfs2kml</url>
   </scm>
 
   <organization>
