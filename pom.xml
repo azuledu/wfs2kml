@@ -34,15 +34,14 @@
     <extensions>
       <extension>
         <groupId>org.apache.maven.wagon</groupId>
-        <artifactId>wagon-webdav</artifactId>
-        <version>1.0-beta-2</version>
+        <artifactId>wagon-webdav-jackrabbit</artifactId>
+        <version>1.0-beta-6</version>
       </extension>
     </extensions>
     
   </build>
   <scm>
-  	<connection>scm:svn:http://svn.idelab.uva.es/wfs2kml/wfs2kml</connection>
-  	<developerConnection>scm:svn:http://svn.idelab.uva.es/wfs2kml/wfs2kml</developerConnection>
+  	<connection>scm:svn:http://svn.idelab.uva.es/wfs2kml/trunk</connection>
   	<url>http://dev.idelab.uva.es/wfs2kml/browser/wfs2kml</url>
   </scm>
 
@@ -170,12 +169,17 @@
       <version>2.5</version>
       <scope>provided</scope>
     </dependency>
-    
    <dependency>
    	<groupId>log4j</groupId>
    	<artifactId>log4j</artifactId>
    	<version>1.2.16</version>
    </dependency>
+<dependency>
+    <groupId>org.apache.maven.wagon</groupId>
+    <artifactId>wagon-webdav-jackrabbit</artifactId>
+    <version>1.0-beta-6</version>
+</dependency>
+
   </dependencies>
   
     <reporting>
