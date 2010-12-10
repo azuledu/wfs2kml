@@ -88,7 +88,7 @@
     <site>
       <id>site</id>
       <name>WFS2KML site</name>
-      <url>dav:http://mvn.idelab.uva.es/wfs2kml</url>
+      <url>http://mvn.idelab.uva.es/wfs2kml</url>
     </site>
   </distributionManagement>
   
