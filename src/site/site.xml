@@ -41,7 +41,7 @@
     
     <menu ref="parent" />
     <menu ref="modules" />
-    <menu ref="reports" collapse="true" />
+    <menu ref="reports"  />
 
   </body>  
   

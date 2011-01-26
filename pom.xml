@@ -11,7 +11,7 @@
   <version>0.2-SNAPSHOT</version>
   <description>Gateway to transform WFS requests in KML responses with special emphasis in 3D representation of features</description>
   <url>http://mvn.idelab.uva.es/wfs2kml</url>
-  <inceptionYear>2010</inceptionYear>
+  <inceptionYear>2008</inceptionYear>
   
   <properties>
     <geotools.version>2.6.4</geotools.version>
@@ -31,6 +31,13 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <extensions>
+    	<extension>
+    		<groupId>org.apache.maven.wagon</groupId>
+    		<artifactId>wagon-webdav-jackrabbit</artifactId>
+    		<version>1.0-beta-7</version>
+    	</extension>
+    </extensions>
   </build>
 
   <scm>
@@ -88,7 +95,7 @@
     <site>
       <id>site</id>
       <name>WFS2KML site</name>
-      <url>scp://mvn.idelab.uva.es/wfs2kml</url>
+      <url>dav://mvn.idelab.uva.es/wfs2kml</url>
     </site>
   </distributionManagement>
   
@@ -197,14 +204,7 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>taglist-maven-plugin</artifactId>
         <version>2.4</version>
-        <configuration>
-          <tags>
-            <tag>FIXME</tag>
-            <tag>@fixme</tag>
-            <tag>TODO</tag>
-            <tag>@todo</tag>
-          </tags>
-        </configuration>
+
       </plugin>
       
 <!--      <plugin>-->
