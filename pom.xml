@@ -11,11 +11,15 @@
   <version>0.2-SNAPSHOT</version>
   <description>Gateway to transform WFS requests in KML responses with special emphasis in 3D representation of features</description>
   <url>http://mvn.idelab.uva.es/wfs2kml</url>
+  <ciManagement>
+  	<system>Hudson</system>
+  	<url>http://hudson.idelab.uva.es/view/WFS-KML</url>
+  </ciManagement>
   <inceptionYear>2008</inceptionYear>
   
   <properties>
-    <geotools.version>2.6.4</geotools.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  	<geotools.version>2.7-RC2</geotools.version>
+  	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   
   <build>
