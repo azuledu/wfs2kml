@@ -25,6 +25,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+	<scm>
+		<connection>scm:svn:http://itastdevserver.tel.uva.es/svn/${project.artifactId}/trunk</connection>
+		<developerConnection>scm:svn:http://itastdevserver.tel.uva.es/svn/${project.artifactId}/trunk</developerConnection>
+	</scm>
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -94,14 +98,6 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
-		</repository>
-		<repository>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<id>osgeo-snapshots</id>
-			<name>osgeo Snapshots</name>
-			<url>http://repo.osgeo.org/</url>
 		</repository>
 	</repositories>
 
