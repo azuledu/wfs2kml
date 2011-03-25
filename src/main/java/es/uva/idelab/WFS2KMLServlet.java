@@ -98,8 +98,8 @@ import org.opengis.feature.type.AttributeType;
             }
 			SimpleFeatureType schema = dataStore.getSchema( typeName );
 
-			// Query   //TODO El CRS de KML no es solo 4326.Hay que especificar mas.
-			CoordinateReferenceSystem kmlCRS = CRS.decode("EPSG:4326"); 
+			// Query
+			CoordinateReferenceSystem kmlCRS = CRS.decode("EPSG:900913"); 
 			ReferencedEnvelope bbox = new ReferencedEnvelope( xMin, xMax, yMin, yMax, kmlCRS );			
 			
 			String geomName = schema.getGeometryDescriptor().getLocalName();
