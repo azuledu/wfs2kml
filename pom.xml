@@ -28,7 +28,7 @@
 	<scm>
 		<connection>scm:svn:http://itastdevserver.tel.uva.es/svn/${project.artifactId}/trunk</connection>
 		<developerConnection>scm:svn:http://itastdevserver.tel.uva.es/svn/${project.artifactId}/trunk</developerConnection>
-		<url>http://dev.idelab.uva.es/${project.artifactId}/browser/${project.artifactId}</url>
+		<url>http://dev.idelab.uva.es/${project.artifactId}/browser</url>
 	</scm>
 	<build>
 		<pluginManagement>
