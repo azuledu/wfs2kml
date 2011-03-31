@@ -12,8 +12,8 @@
       	<div id="header"><a id="logo" href="/wfs2kml">&nbsp;</a></div>
       	<div id="content">
 	        <form action="wfs2kml" method="get">
-	        <fieldset><legend>Server</legend><br/>
-	        * GetCapabilities URL: <input type="text" name="server" size="87" VALUE="http://localhost:8080/geoserver/wfs?service=WFS&request=GetCapabilities" /><br/><br/>
+	        <fieldset><legend>WFS Server</legend><br/>
+	        * WFS GetCapabilities URL: <input type="text" name="server" size="87" VALUE="http://geoserver.idelab.uva.es/geoserver/wfs?service=WFS&request=GetCapabilities" /><br/><br/>
 			* Layer: <input type="text" name="layer" size="50" VALUE="topp:states" /><br/><br/>
 			Bounding Box: <input type="text" name="bbox" size="25"  VALUE="-90,-180,90,180"/><br/>	<br/>
 <!--  			xmin <input type="text" name="xmin" size="5" VALUE="-180">    VALUE="-90,-180,90,180"
@@ -22,13 +22,14 @@
 			ymax <input type="text" name="ymax" size="5" VALUE="90"></p>	-->
 			</fieldset><br/>
 			<fieldset><legend>Simplification (Douglas-Peucker algorithm)</legend><br/>
-					Coordinate distance tolerance: (0 for no simplification)<input type="text" name="tolerance" size="20" VALUE="0.01" /><br/><br/>
+					Coordinate distance tolerance: (0 for no simplification)<input type="text" name="tolerance" size="20" VALUE="0" /><br/><br/>
 			</fieldset><br/>
 			<fieldset><legend>3D Style (Height=zAttribute/Scale)</legend><br/>
 					zAttribute: <input type="text" name="zAttribute" size="20" VALUE="PERSONS" /><br/><br/>
 					Scale: <input type="text" name="scale" size="10" VALUE="100" /><br/><br/>
 			</fieldset><br/>
-			<input type="submit" value="Preview KML file">
+			<input type="submit" name="kml_file_action" value="Preview KML file"> 
+			<input type="submit" name="kml_file_action" value="Download KML file">  
 			</form>
 		</div>	
     </body>

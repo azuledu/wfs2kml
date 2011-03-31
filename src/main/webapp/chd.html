@@ -2,7 +2,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>WFS to KML Gateway - CHD</title>
-    	<link rel="stylesheet" type="text/css" href="http://itastdevserver.tel.uva.es/css/aulachduero.css" />    </head>
+    	<link rel="stylesheet" type="text/css" href="http://css.idelab.uva.es/aulachduero.css" />    </head>
     <body>
      <div id="banner">
 
@@ -13,23 +13,24 @@
 
     <div id="main">
 	        <form action="wfs2kml" method="get">
-	        <fieldset><legend>Server</legend><br/>
-	        GetCapabilities URL: <input type="text" name="server" size="87" VALUE="http://www.mirame.chduero.es/duerowfd?service=WFS&request=GetCapabilities" /><br/><br/>
-			Layer: <input type="text" name="layer" size="50" VALUE="Segmentos_Embalse" /><br/><br/>
+	        <fieldset><legend>Servidor WFS</legend><br/>
+	        WFS GetCapabilities URL: <input type="text" name="server" size="80" VALUE="http://www.mirame.chduero.es/duerowfd?service=WFS&request=GetCapabilities" /><br/><br/>
+			Capa: <input type="text" name="layer" size="50" VALUE="Segmentos_Embalse" /><br/><br/>
 			Bounding Box: <input type="text" name="bbox" size="25" VALUE="-90,-180,90,180" /><br/>	<br/>
 <!--  			xmin <input type="text" name="xmin" size="5" VALUE="-180">
 			xmax <input type="text" name="xmax" size="5" VALUE="180">
 			ymin <input type="text" name="ymin" size="5" VALUE="-90">
 			ymax <input type="text" name="ymax" size="5" VALUE="90"></p>	-->
 			</fieldset><br/>
-			<fieldset><legend>Simplification (Douglas-Peucker algorithm)</legend><br/>
-					Coordinate distance tolerance: (0 for no simplification)<input type="text" name="tolerance" size="20" VALUE="0.01" /><br/><br/>
+			<fieldset><legend>Simplificaci&oacute;n (algoritmo Douglas-Peucker)</legend><br/>
+					Tolerancia para la distancia entre coordenadas: <input type="text" name="tolerance" size="20" VALUE="0.01" /> (0 para no simplificar)<br/><br/>
 			</fieldset><br/>
-			<fieldset><legend>3D Style (Height=zAttribute/Scale)</legend><br/>
+			<fieldset><legend>Estilo 3D (Height=zAttribute/Scale)</legend><br/>
 					zAttribute: <input type="text" name="zAttribute" size="20" VALUE="AREA" /><br/><br/>
-					Scale: <input type="text" name="scale" size="10" VALUE="0.01" /><br/><br/>
+					Escala: <input type="text" name="scale" size="10" VALUE="0.01" /><br/><br/>
 			</fieldset><br/>
-			<input type="submit" value="Previsualizar fichero KML">
+			<input type="submit" name="kml_file_action" value="Previsualizar KML"> 
+			<input type="submit" name="kml_file_action" value="Descargar fichero KML">  
 			</form>
 		</div>	
     </body>

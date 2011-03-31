@@ -12,6 +12,7 @@ legend {
 #header {
 	background: url(../img/wfs2kml_header.jpg) no-repeat center;
 	height: 77px;
+	margin-bottom: 30px;
 }
 
 #content {
