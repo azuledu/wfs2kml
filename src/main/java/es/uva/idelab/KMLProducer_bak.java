@@ -29,8 +29,7 @@ public class KMLProducer_bak {
 	private double scale;
 	private double tolerance;
 
-	public KMLProducer_bak(PrintWriter kmlout, String typeName,
-			double tolerance, String zAttribute, double scale) {
+	public KMLProducer_bak(PrintWriter kmlout, String typeName, double tolerance, String zAttribute, double scale) {
 		this.kmlout = kmlout;
 		this.typeName = typeName;
 		this.tolerance = tolerance;
@@ -134,8 +133,7 @@ public class KMLProducer_bak {
 	 * @param feature
 	 *            Feature to extract their geometries
 	 */
-	private void kmlGeometries(SimpleFeature feature,
-			CoordinateReferenceSystem geomCRS) {
+	private void kmlGeometries(SimpleFeature feature, CoordinateReferenceSystem geomCRS) {
 
 		boolean multiGeometry = false;
 		double zCoord;
