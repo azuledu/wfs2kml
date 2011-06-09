@@ -17,6 +17,8 @@ import org.geotools.feature.FeatureIterator;
 import org.geotools.geometry.jts.JTS;
 import org.geotools.kml.KML;
 import org.geotools.kml.KMLConfiguration;
+import org.geotools.kml.bindings.LinearRingTypeBinding;
+import org.geotools.kml.bindings.PlacemarkTypeBinding;
 import org.geotools.referencing.CRS;
 import org.geotools.referencing.crs.DefaultGeographicCRS;
 import org.geotools.xml.Encoder;
@@ -87,6 +89,9 @@ public class KmlProducer {
 		f.setDefaultGeometry(g);
 		newCollection.add(f);
 		}
+		//LinearRingTypeBinding lin = new org.geotools.kml.bindings.LinearRingTypeBinding();
+		//PlacemarkTypeBinding pl=new PlacemarkTypeBinding();
+		//pl.
 		// Encode to XML 
 		Encoder encoder = new Encoder(new KMLConfiguration());
 		encoder.setIndenting(true);
