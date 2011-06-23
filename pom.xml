@@ -21,7 +21,7 @@
 	<inceptionYear>2008</inceptionYear>
 
 	<properties>
-		<geotools.version>2.7.0.2</geotools.version>
+		<geotools.version>2.7.1</geotools.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -134,15 +134,15 @@
 			<groupId>org.geotools.jdbc</groupId>
 			<artifactId>gt-jdbc-oracle</artifactId>
 			<version>${geotools.version}</version>  
-		</dependency>		
-<!-- 		<dependency>
-			<groupId>org.geotools</groupId>
-			<artifactId>gt-epsg-wkt</artifactId>
-			<version>${geotools.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.geotools</groupId>
 			<artifactId>gt-epsg-hsql</artifactId>
+			<version>${geotools.version}</version>
+		</dependency>		
+<!-- 		<dependency>
+			<groupId>org.geotools</groupId>
+			<artifactId>gt-epsg-wkt</artifactId>
 			<version>${geotools.version}</version>
 		</dependency>
 		<dependency>
