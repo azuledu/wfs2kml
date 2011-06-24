@@ -6,12 +6,13 @@ import org.geotools.data.simple.SimpleFeatureCollection;
 import org.geotools.data.simple.SimpleFeatureIterator;
 import org.geotools.feature.FeatureCollection;
 import org.geotools.feature.FeatureCollections;
+import org.geotools.geometry.jts.JTS;
 import org.geotools.referencing.CRS;
-import org.geotools.data.crs.ReprojectFeatureResults;
 
 import org.opengis.feature.simple.SimpleFeature;
 import org.opengis.feature.simple.SimpleFeatureType;
 import org.opengis.referencing.crs.CoordinateReferenceSystem;
+import org.opengis.referencing.operation.MathTransform;
 
 import com.vividsolutions.jts.geom.Geometry;
 import com.vividsolutions.jts.simplify.TopologyPreservingSimplifier;
@@ -28,7 +29,6 @@ public class KmlProducer {
 	public static final String[] IGNORED_ATTR = { "LookAt", "Style", "Region" };
 	static Logger logger = Logger.getLogger("WFS2KMLServlet.class");
 
-
 	/**
 	 * Writes the {@link FeatureCollection} to disk in KML format.
 	 * 
@@ -40,14 +40,23 @@ public class KmlProducer {
 	 */
 	public static SimpleFeatureCollection Simplify(SimpleFeatureCollection featureCollection) throws Exception {
 
+		
 		System.setProperty("org.geotools.referencing.forceXY", "true");
-
+		if (logger.isDebugEnabled()) 
+			logger.debug("org.geotools.referencing.forceXY Property: " + System.getProperty("org.geotools.referencing.forceXY"));
+		
+//        // make sure we output in 4326 since that's what KML mandates
+//		CoordinateReferenceSystem sourceCrs = featureCollection.getSchema().getCoordinateReferenceSystem();
+//        MathTransform mtrans = CRS.findMathTransform(sourceCrs, WGS84, true);
+		
 		SimpleFeatureCollection newCollection = FeatureCollections.newCollection();
 		SimpleFeatureIterator featuresIterator = featureCollection.features();
 		while (featuresIterator.hasNext()) {
 			SimpleFeature f = featuresIterator.next();
 			Geometry g = (Geometry) f.getDefaultGeometry();
-
+//			if (!mtrans.isIdentity()) {   
+//                g = JTS.transform(g, mtrans);   
+//			}
 			// Simplify
 			// TODO http://docs.geotools.org/latest/userguide/guide/library/data/pregeneralized.html
 			int numDecPlaces = 5; // 5 decimal digits

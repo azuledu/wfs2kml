@@ -56,8 +56,8 @@ import com.vividsolutions.jts.geom.Envelope;
 public class WFS2KMLServlet extends HttpServlet {
 
 	static Logger logger = Logger.getLogger("WFS2KMLServlet.class");
-
-    private static final CoordinateReferenceSystem WGS84;
+    
+	private static final CoordinateReferenceSystem WGS84;
     
     static {
         try {
@@ -116,22 +116,20 @@ public class WFS2KMLServlet extends HttpServlet {
 	        //CachingFeatureSource cache = new CachingFeatureSource(featureSource);
 
 			// Query
-//			ReferencedEnvelope referencedEnvelope = new ReferencedEnvelope(xMin, xMax, yMin, yMax, WGS84);
-//	        Filter filter = createBBoxFilter(schema, referencedEnvelope);
-//			Query query = new Query(schema.getTypeName());
-//			query.setFilter(filter);
-//
-//			SimpleFeatureCollection collection = featureSource.getFeatures(query); 
-			SimpleFeatureCollection collection = featureSource.getFeatures(); 
+			ReferencedEnvelope referencedEnvelope = new ReferencedEnvelope(xMin, xMax, yMin, yMax, WGS84);
+	        Filter filter = createBBoxFilter(schema, referencedEnvelope);
+			Query query = new Query(schema.getTypeName());
+			query.setFilter(filter);
+
+			SimpleFeatureCollection collection = featureSource.getFeatures(query); 
 
 	        // make sure we output in 4326 since that's what KML mandates
 			CoordinateReferenceSystem sourceCrs = schema.getCoordinateReferenceSystem();
 			if (sourceCrs != null && !CRS.equalsIgnoreMetadata(WGS84, sourceCrs)) {
-//	        	collection = new ReprojectFeatureResults(featureSource.getFeatures(query), WGS84);
-	        	collection = new ReprojectFeatureResults(featureSource.getFeatures(), WGS84);	        	
+	        	collection = new ReprojectFeatureResults(featureSource.getFeatures(query), WGS84);
 	        }
 	       	        
-			BoundingBox bounds = featureSource.getBounds(); //getBounds(query);
+			BoundingBox bounds = featureSource.getBounds(query);
 			if (logger.isDebugEnabled()) logger.debug("The features are contained within " + bounds);
 
 			if (logger.isDebugEnabled()) {
@@ -187,17 +185,17 @@ public class WFS2KMLServlet extends HttpServlet {
 
 				String kmlString = new String(out.toByteArray());
 
-				String filePath = "kmlout.kml";
-				File kmlFP = new File(filePath);
-				FileWriter kmlFW = new FileWriter(kmlFP);
-				BufferedWriter bW = null;
 				try {
-					bW = new BufferedWriter(kmlFW);
-					bW.write(kmlString);
-				} finally {
-					if (bW != null)
-						bW.close();
+					response.setContentType("application/vnd.google-earth.kml+xml;charset=UTF-8");
+					response.setHeader("Content-Disposition", "attachment;filename=tematico.kml");
+				} catch (Exception e) {
+					logger.error("Error configuring response" + e.getMessage(), e);
 				}
+				
+				PrintWriter kmlout = response.getWriter();
+				kmlout.write(kmlString);
+				kmlout.close();
+
 			} else { // if (("Preview KML file".equals(this.kml_file_action))) ||
 						// ("Previsualizar KML".equals(this.kml_file_action)))
 				ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -205,9 +203,11 @@ public class WFS2KMLServlet extends HttpServlet {
 
 				String kmlString = new String(out.toByteArray());
 
-				response.setContentType("application/xml");
+				response.setContentType("application/xml;charset=UTF-8");
 				PrintWriter kmlout = response.getWriter();
 				kmlout.write(kmlString);
+				kmlout.close();
+
 			}
 			
 			
