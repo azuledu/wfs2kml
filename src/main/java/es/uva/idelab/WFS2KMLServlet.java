@@ -2,10 +2,7 @@ package es.uva.idelab;
 
 import org.apache.log4j.Logger;
 
-import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -38,6 +35,7 @@ import org.geotools.xml.Encoder;
 //import org.geotools.referencing.CRS;
 
 //import org.opengis.referencing.crs.CoordinateReferenceSystem;
+import org.opengis.feature.simple.SimpleFeature;
 import org.opengis.feature.simple.SimpleFeatureType;
 import org.opengis.feature.type.AttributeDescriptor;
 import org.opengis.feature.type.AttributeType;
@@ -172,7 +170,7 @@ public class WFS2KMLServlet extends HttpServlet {
 
 			collection = KmlProducer.Simplify(collection);
 			
-			
+			SimpleFeature f = collection.features().next();
 			// Encode to XML
 			Encoder encoder = new Encoder(new KMLConfiguration());
 			encoder.setIndenting(true);
@@ -196,10 +194,9 @@ public class WFS2KMLServlet extends HttpServlet {
 				kmlout.write(kmlString);
 				kmlout.close();
 
-			} else { // if (("Preview KML file".equals(this.kml_file_action))) ||
-						// ("Previsualizar KML".equals(this.kml_file_action)))
+			} else { // if (("Preview KML file".equals(this.kml_file_action))) || ("Previsualizar KML".equals(this.kml_file_action)))
 				ByteArrayOutputStream out = new ByteArrayOutputStream();
-				encoder.encode(collection, KML.kml, out);
+				encoder.encode(collection, KML.Placemark, out);
 
 				String kmlString = new String(out.toByteArray());
 
