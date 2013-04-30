@@ -64,3 +64,19 @@ Usage
   _zAttribute_ - (Optional) - Layer's attribute used as height attribute. If it is not set, 3D feature's height attribute is used or, in 2D features, it will be shown as 2D picture.
   
   _scale_ - (Optional) - The height will be divided by this number. Default scale is 1.
+
+
+Glossary
+--------
+
+  **OWS** - _OGC Web Service_.
+  
+  **OGC** - _Open Geospatial Consortium_. International voluntary consensus standards organization. Develop and implements standards for geospatial content and services, GIS data processing and exchange.
+  
+  **WFS** - _Web Feature Service_. Allow requests for geographical features across the web. It is a OGC specification.
+  
+  **KML** - _Keyhole Markup Language_. XML format used by Google to represent 3D geographic information.
+  
+  **Feature** - Entity with a geographic location, typically describable by (for example) points, arcs, or polygons.
+  
+  **CRS** - _Coordinate Reference System_
