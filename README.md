@@ -1,8 +1,8 @@
 **This _WFS-KML Gateway_ project was my first contact with GIS, GeoTools, OGC standards, etc. It is just a proof of concept now totally remplaced by _FeaturePub_ project.**
 
 
-WFS-KML Gateway
-===============
+## WFS-KML Gateway
+
 
 The _WFS-KML Gateway_ project aims to develop a gateway to transform WFS requests in KML responses.
   
@@ -17,8 +17,8 @@ The _WFS-KML Gateway_ project aims to develop a gateway to transform WFS request
   As we can see, WFS-KML Gateway makes possible to translate between the OGC standart protocols and KML Google protocol, adding value to this translation allowing to configurate the way we visualize geographic features and their parameters.
 
 
-Features
---------
+### Features
+
 
   * Transform WFS requests in KML responses.
   
@@ -35,8 +35,8 @@ Features
     * Height parameter can be scaled.
 
 
-Usage
------
+### Usage
+
 
   The _WFS-KML Gateway Servlet_ can be deployed into any Servlet container (ex. Apache Tomcat) to offer the WFS-KML Gateway service.
 
@@ -66,8 +66,8 @@ Usage
   _scale_ - (Optional) - The height will be divided by this number. Default scale is 1.
 
 
-Glossary
---------
+### Glossary
+
 
   **OWS** - _OGC Web Service_.
   
