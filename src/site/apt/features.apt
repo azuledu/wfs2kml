@@ -13,7 +13,7 @@ Features
   
   * Allow to select the Bounding Box.
   
-  * Automatic conversion between diferent Coordinate Reference Systems (CRS). KML format use the WSG84 CRS, the standart longitude-latitude system. The bounding box must be given in this format. But if data are stored in a diferent format, automatic conversion will be performed. 
+  * Automatic conversion between diferent Coordinate Reference Systems (CRS). KML format use the WSG84 CRS, the standart longitude-latitude system. The bounding box must be given in this format, but if data are stored in a diferent format, automatic conversion will be performed. 
   
   * 3D representation of geographic features.
   

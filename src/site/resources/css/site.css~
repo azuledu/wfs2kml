@@ -1,0 +1,12 @@
+body {
+	width: 1024px;
+}
+
+#banner {
+	height: 77px;
+	background: none;
+}
+
+#poweredBy {
+	margin-left: 40px;
+}
