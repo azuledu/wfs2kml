@@ -1,10 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<parent>
-		<artifactId>maven-java</artifactId>
-		<groupId>es.uva.idelab</groupId>
-		<version>0.1-SNAPSHOT</version>
-	</parent>
+
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>es.uva.idelab</groupId>
@@ -14,11 +10,14 @@
 	<name>WFS-KML Gateway</name>
 	<version>0.2-SNAPSHOT</version>
 	<description>Gateway to transform WFS requests in KML responses with special emphasis in 3D representation of features</description>
-	<ciManagement>
-		<system>Jenkins</system>
-		<url>http://jenkins.idelab.uva.es/view/WFS-KML</url>
-	</ciManagement>
+	<url>http://eduardoriesco.com/wfs_kml_gw</url>
+
 	<inceptionYear>2008</inceptionYear>
+
+	<organization>
+		<name>IDELab (University of Valladolid)</name>
+		<url>http://www.idelab.uva.es</url>
+	</organization>
 
 	<properties>
 		<geotools.version>2.7.1</geotools.version>
@@ -26,10 +25,10 @@
 	</properties>
 
 	<scm>
-		<connection>scm:svn:http://itastdevserver.tel.uva.es/svn/${project.artifactId}/trunk</connection>
-		<developerConnection>scm:svn:http://itastdevserver.tel.uva.es/svn/${project.artifactId}/trunk</developerConnection>
-		<url>http://dev.idelab.uva.es/${project.artifactId}/browser</url>
+		<connection>scm:git:git://github.com/azuledu/wfs2kml</connection>
+		<url>http://github.com/azuledu/wfs2kml</url>
 	</scm>
+
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -43,21 +42,27 @@
 					</configuration>
 				</plugin>
 				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>tomcat-maven-plugin</artifactId>
-					<version>1.1</version>
-					<configuration>
-						<server>localhost</server>
-<!-- 						<server>itastdevserver</server>
-						<url>http://itastdevserver.tel.uva.es:8080/manager</url> -->  
-					</configuration> 
-				</plugin>
+          				<groupId>org.apache.tomcat.maven</groupId>
+          				<artifactId>tomcat7-maven-plugin</artifactId>
+          				<version>2.1</version>
+        			</plugin>
 			</plugins>
 		</pluginManagement>
 		<finalName>wfs2kml</finalName>
 	</build>
 
 	<developers>
+		<developer>
+			<id>juacas</id>
+			<name>Juan pablo de Castro</name>
+			<email>juacas@tel.uva.es</email>
+			<organization>IDELab (University of Valladolid)</organization>
+			<organizationUrl>http://www.idelab.uva.es</organizationUrl>
+			<timezone>+1</timezone>
+			<roles>
+				<role>Coordinator</role>
+			</roles>
+		</developer>
 		<developer>
 			<id>edurie</id>
 			<name>Eduardo Riesco</name>
@@ -71,8 +76,46 @@
 		</developer>
 	</developers>
 
+	<reporting>
+		<plugins>
+			<!--<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+			</plugin>-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>2.3</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>taglist-maven-plugin</artifactId>
+				<version>2.4</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>javancss-maven-plugin</artifactId>
+				<version>2.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<targetJdk>1.5</targetJdk>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-changelog-plugin</artifactId>
+				<version>2.2</version>
+			</plugin>
+		</plugins>
+	</reporting>
+
 	<distributionManagement>
-		<repository>
+<!--		<repository>
 			<id>ITAST_Maven</id>
 			<name>IDELAB releases repository</name>
 			<url>http://rep.idelab.uva.es/content/repositories/releases</url>
@@ -86,15 +129,10 @@
 			<id>site</id>
 			<name>WFS2KML site</name>
 			<url>dav:http://mvn.idelab.uva.es/wfs2kml</url>
-		</site>
+		</site> -->
 	</distributionManagement>
 
 	<repositories>
-		<repository>
-			<id>ITAST_Maven</id>
-			<name>IDELab Repository</name>
-			<url>http://rep.idelab.uva.es/content/groups/public</url>
-		</repository>
 		<repository>
 			<id>maven2-repository.dev.java.net</id>
 			<name>Java.net repository</name>
@@ -140,16 +178,6 @@
 			<artifactId>gt-epsg-hsql</artifactId>
 			<version>${geotools.version}</version>
 		</dependency>		
-<!-- 		<dependency>
-			<groupId>org.geotools</groupId>
-			<artifactId>gt-epsg-wkt</artifactId>
-			<version>${geotools.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.geotools</groupId>
-			<artifactId>gt-epsg-extension</artifactId>
-			<version>${geotools.version}</version>
-		</dependency>  -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -165,12 +193,6 @@
 			<groupId>org.geotools.xsd</groupId>
 			<artifactId>gt-xsd-kml</artifactId>
 			<version>${geotools.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc14</artifactId>
-			<version>9.2.0.8</version>
-			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 

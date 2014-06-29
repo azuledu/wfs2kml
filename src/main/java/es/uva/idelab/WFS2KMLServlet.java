@@ -49,14 +49,14 @@ import com.vividsolutions.jts.geom.Envelope;
 
 /**
  * Servlet implementation.
- * 
+ *
  */
 public class WFS2KMLServlet extends HttpServlet {
 
 	static Logger logger = Logger.getLogger("WFS2KMLServlet.class");
-    
+
 	private static final CoordinateReferenceSystem WGS84;
-    
+
     static {
         try {
             WGS84 = CRS.decode("EPSG:4326");
@@ -64,31 +64,31 @@ public class WFS2KMLServlet extends HttpServlet {
             throw new RuntimeException("Cannot decode EPSG:4326, the CRS subsystem must be badly broken...");
         }
     }
-    
+
     private static FilterFactory filterFactory = (FilterFactory) CommonFactoryFinder.getFilterFactory(null);
-    
+
 	private double xMin = -180;
 	private double xMax = 180;
 	private double yMin = -90;
 	private double yMax = 90;
 
 	private String dataSource="WFS"; //WFS, DATABASE
-	private String server; // http://geoserver.idelab.uva.es/geoserver/wfs?service=WFS&request=GetCapabilities
+	private String server; // http://demo.opengeo.org/geoserver/wfs?service=WFS&request=GetCapabilities
 	private double tolerance = 0;
 	private String zAttribute; // z coordinate (Height Parameter)
 	private double scale = 1; // height = zAttribute/scale
 	private String layer; // Feature Type Name
-	private String kml_file_action; 
+	private String kml_file_action;
 
 	@SuppressWarnings("unchecked")
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		logger.info("********************** ToKML ***************************");
-		
+
 		//Map<String, Object> ConnectionParameters = request.getParameterMap();
 		setParameters(request);
-		
+
 		try {
 			// DataStore
 			Map<String, String> ConnectionParameters = new HashMap<String, String>();
@@ -99,7 +99,7 @@ public class WFS2KMLServlet extends HttpServlet {
 				ConnectionParameters.put("OracleNGDataStoreFactory:HOST", "chddb.idelab.uva.es");
 				ConnectionParameters.put("OracleNGDataStoreFactory:PORT", "1521");
 				ConnectionParameters.put("OracleNGDataStoreFactory:SCHEMA ", "public");
-				ConnectionParameters.put("OracleNGDataStoreFactory:DATABASE ", "gisduero");				
+				ConnectionParameters.put("OracleNGDataStoreFactory:DATABASE ", "gisduero");
 				ConnectionParameters.put("OracleNGDataStoreFactory:USER", "gisduero_09");
 				ConnectionParameters.put("OracleNGDataStoreFactory:PASSWD", "gisduero_09");
 			}
@@ -107,7 +107,7 @@ public class WFS2KMLServlet extends HttpServlet {
 			if (dataStore == null) {
 				if (logger.isDebugEnabled()) logger.debug("Could not connect - check parameters");
 			}
-			
+
 			// SimpleFeatureType and SimpleFeatureSource
 			SimpleFeatureType schema = dataStore.getSchema(layer);
 			SimpleFeatureSource featureSource = dataStore.getFeatureSource(layer);
@@ -119,14 +119,14 @@ public class WFS2KMLServlet extends HttpServlet {
 			Query query = new Query(schema.getTypeName());
 			query.setFilter(filter);
 
-			SimpleFeatureCollection collection = featureSource.getFeatures(query); 
+			SimpleFeatureCollection collection = featureSource.getFeatures(query);
 
 	        // make sure we output in 4326 since that's what KML mandates
 			CoordinateReferenceSystem sourceCrs = schema.getCoordinateReferenceSystem();
 			if (sourceCrs != null && !CRS.equalsIgnoreMetadata(WGS84, sourceCrs)) {
 	        	collection = new ReprojectFeatureResults(featureSource.getFeatures(query), WGS84);
 	        }
-	       	        
+
 			BoundingBox bounds = featureSource.getBounds(query);
 			if (logger.isDebugEnabled()) logger.debug("The features are contained within " + bounds);
 
@@ -162,21 +162,21 @@ public class WFS2KMLServlet extends HttpServlet {
 			// habria que pasarle como argumento featureType[] -> NO, UN UNICO
 			// FEATURE PARA ELEGIR EL HEIGHT ATTRIBUTE (y query[]? no en main?)
 			// FeatureCollection featureCollection = wfs.getFeature( typeName , featuresIntersectsBbox );
-			
+
 			//FeatureSource source = dataStore.getFeatureSource(typeName);
 			//SimpleFeatureCollection features = source.getFeatures(featuresIntersectsBbox);
-			
+
 
 
 			collection = KmlProducer.Simplify(collection);
-			
+
 			SimpleFeature f = collection.features().next();
 			// Encode to XML
 			Encoder encoder = new Encoder(new KMLConfiguration());
 			encoder.setIndenting(true);
 
-			
-			
+
+
 			if (("Download KML file".equalsIgnoreCase(this.kml_file_action)) || ("Descargar fichero KML".equalsIgnoreCase(this.kml_file_action))) {
 				ByteArrayOutputStream out = new ByteArrayOutputStream();
 				encoder.encode(collection, KML.kml, out);
@@ -189,7 +189,7 @@ public class WFS2KMLServlet extends HttpServlet {
 				} catch (Exception e) {
 					logger.error("Error configuring response" + e.getMessage(), e);
 				}
-				
+
 				PrintWriter kmlout = response.getWriter();
 				kmlout.write(kmlString);
 				kmlout.close();
@@ -206,13 +206,13 @@ public class WFS2KMLServlet extends HttpServlet {
 				kmlout.close();
 
 			}
-			
-			
+
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void setParameters(HttpServletRequest request) {
 		// Required parameters
 		// if((!("".equals(connectionParameters.get("server")))))
@@ -230,7 +230,7 @@ public class WFS2KMLServlet extends HttpServlet {
 		scale = Double.parseDouble(request.getParameter("scale").toString());
 		if (logger.isDebugEnabled()) logger.debug("zAttribute=" + zAttribute + ", scale=" + scale);
 
-		String bboxParam = request.getParameter("bbox"); 
+		String bboxParam = request.getParameter("bbox");
 		String[] bboxParams = bboxParam.split(",");
 		xMin = Double.valueOf(bboxParams[0]).doubleValue();
 		xMax = Double.valueOf(bboxParams[2]).doubleValue();
@@ -243,7 +243,7 @@ public class WFS2KMLServlet extends HttpServlet {
 		kml_file_action = request.getParameter("kml_file_action");
 		if (logger.isDebugEnabled()) logger.debug("kml_file_action=" + kml_file_action );
 	}
-	
+
     private static Filter createBBoxFilter(SimpleFeatureType schema, Envelope bbox) throws IllegalFilterException {
         List filters = new ArrayList();
         for (int j = 0; j < schema.getAttributeCount(); j++) {
